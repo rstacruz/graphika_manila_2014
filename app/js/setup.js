@@ -14,6 +14,7 @@ $(function () {
   $('.section[id], .m-section').scrollagent({
     xform: function (y, range, height) { return y + height * 0.8; }
   }, function (cid, pid, el, previous) {
+    $(document).trigger('section', id);
     $('html')
       .toggleClass(getClass($(previous)), false)
       .toggleClass(getClass($(el)), true);
@@ -29,4 +30,8 @@ $(function () {
 
   $(document).toggleable('.toggle', { using: '.toggle-button' });
   $(document).toggleable('.faq-list li', { using: 'strong' });
+});
+
+$(document).on('section', function (e, id) {
+  console.log("Section", e, id);
 });
