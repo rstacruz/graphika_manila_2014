@@ -68,10 +68,11 @@ $.monitorHover = function (options) {
   var mercy = options.mercy || 10;
   var over = false;
   $(document).on('mousemove', function (e) {
-    if (e.screenY < y && !over) {
+    console.log(e.clientY, y, over);
+    if (e.clientY < y && !over) {
       over = true;
       $(document).trigger('over:on');
-    } else if (e.screenY > (y + mercy) && over) {
+    } else if (e.clientY > (y + mercy) && over) {
       over = false;
       $(document).trigger('over:off');
     }
@@ -79,10 +80,11 @@ $.monitorHover = function (options) {
 };
 
 // ----------------------------------------------------------------------------
-$.monitorHover(40);
+
+$.monitorHover({ y: 70 });
 $(document).on('over:on', function () {
-  $('.navigation .links').show();
+  $('.navigation').toggleClass('show-links', true);
 });
 $(document).on('over:off', function () {
-  $('.navigation .links').hide();
+  $('.navigation').toggleClass('show-links', false);
 });
