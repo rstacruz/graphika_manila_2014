@@ -11,7 +11,9 @@ $(function () {
 
   $('.fillsize').fillsize('>img');
 
-  $('.section[id], .m-section').scrollagent(function (cid, pid, el, previous) {
+  $('.section[id], .m-section').scrollagent({
+    xform: function (y, range, height) { return y + height * 0.8; }
+  }, function (cid, pid, el, previous) {
     $('html')
       .toggleClass(getClass($(previous)), false)
       .toggleClass(getClass($(el)), true);

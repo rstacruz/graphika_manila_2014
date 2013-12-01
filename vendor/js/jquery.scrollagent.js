@@ -27,6 +27,9 @@
 
     var $sections = $(this);
     var $parent = options.parent || $(window);
+    var xform = options.xform || (function(y, range, height) {
+      return y + height * (0.3 + 0.7 * Math.pow(y/range, 2));
+    });
 
     // Find the top offsets of each section
     var offsets = [];
@@ -63,7 +66,7 @@
     // Find the current active section every scroll tick.
     $parent.on('scroll', function() {
       var y = $parent.scrollTop();
-      y += height * (0.3 + 0.7 * Math.pow(y/range, 2));
+      y = xform(y, range, height);
 
       var latest = null;
 
