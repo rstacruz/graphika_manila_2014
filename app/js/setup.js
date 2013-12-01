@@ -1,3 +1,6 @@
+// ----------------------------------------------------------------------------
+// Auto-height thing
+
 $(function () {
   $(window).on('resize.fill', function () {
     $('.speakers .item').css({ height: $(window).innerHeight() });
@@ -5,6 +8,9 @@ $(function () {
   });
   $(window).trigger('resize.fill');
 });
+
+// ----------------------------------------------------------------------------
+// Speaker animation
 
 $(function () {
   var $speakers = $(".speaker.section");
@@ -27,11 +33,56 @@ $(function () {
     } else
       return 'section-'+$el.attr('id');
   }
+});
 
+// ----------------------------------------------------------------------------
+// Toggleable
+
+$(function () {
   $(document).toggleable('.toggle', { using: '.toggle-button' });
   $(document).toggleable('.faq-list li', { using: 'strong' });
 });
 
+// ----------------------------------------------------------------------------
+// Auto-replace
+
 $(document).on('section', function (e, id) {
-  console.log("Section", e, id);
+  if (id === 'top') $.replaceHash(null);
+  else $.replaceHash(id);
+});
+
+// ----------------------------------------------------------------------------
+// Replace hash helper
+
+if (window.history && window.history.replaceState) {
+  $.replaceHash = function (hash) {
+    window.history.replaceState(null, null, hash ? "#"+hash : location.pathname);
+  };
+} else {
+  $.replaceHash = function(){};
+}
+
+// ----------------------------------------------------------------------------
+$.monitorHover = function (options) {
+  var y = options.y || 10;
+  var mercy = options.mercy || 10;
+  var over = false;
+  $(document).on('mousemove', function (e) {
+    if (e.screenY < y && !over) {
+      over = true;
+      $(document).trigger('over:on');
+    } else if (e.screenY > (y + mercy) && over) {
+      over = false;
+      $(document).trigger('over:off');
+    }
+  });
+};
+
+// ----------------------------------------------------------------------------
+$.monitorHover(40);
+$(document).on('over:on', function () {
+  $('.navigation .links').show();
+});
+$(document).on('over:off', function () {
+  $('.navigation .links').hide();
 });

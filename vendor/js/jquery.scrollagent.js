@@ -38,11 +38,6 @@
         parseInt($(this).attr('data-anchor-offset'), 10) :
         (options.offset || 0);
 
-      console.log(
-        $(this).offset().top,
-        this
-      );
-
       offsets.push({
         top: $(this).offset().top + offset,
         id: $(this).attr('id'),
