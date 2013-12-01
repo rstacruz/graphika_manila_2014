@@ -14,7 +14,7 @@ $(function () {
   $('.section[id], .m-section').scrollagent({
     xform: function (y, range, height) { return y + height * 0.8; }
   }, function (cid, pid, el, previous) {
-    $(document).trigger('section', id);
+    $(document).trigger('section', cid);
     $('html')
       .toggleClass(getClass($(previous)), false)
       .toggleClass(getClass($(el)), true);
