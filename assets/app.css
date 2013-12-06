@@ -132,10 +132,10 @@ a {
     .heading {
       padding: 40px 0; } }
   .heading {
-    font-size: 1.5em; }
+    font-size: 1.8em; }
   @media (min-width: 480px) {
     .heading {
-      font-size: 2em; } }
+      font-size: 2.2em; } }
   @media (min-width: 768px) {
     .heading {
       font-size: 2.5em; } }
@@ -539,9 +539,9 @@ a {
   .speakers {
     padding-bottom: 200px; } }
 .speakers .heading {
-  color: rgba(182, 21, 33, 0.9); }
+  color: #cdd94a; }
 .speakers .heading h2:after {
-  border-top-color: rgba(182, 21, 33, 0.5); }
+  border-top-color: #cdd94a; }
 
 /* ----------------------------------------------------------------------------------
  * Background
@@ -561,9 +561,9 @@ a {
   position: relative;
   overflow: hidden; }
 .speakers > .bg .items {
-  -webkit-transition: -webkit-transform 400ms ease;
-  -moz-transition: -webkit-transform 400ms ease;
-  transition: -webkit-transform 400ms ease; }
+  -webkit-transition: 600ms ease;
+  -moz-transition: 600ms ease;
+  transition: 600ms ease; }
 .speakers > .bg .item:after {
   content: "";
   display: block;
@@ -693,12 +693,12 @@ a {
   width: 100%;
   height: 100%; }
 @media (min-width: 480px) {
-  .speaker .image .image img {
+  .speaker .image img {
     opacity: 0.3;
     -webkit-transition: opacity 50ms linear;
     -moz-transition: opacity 50ms linear;
     transition: opacity 50ms linear; }
-  .speaker .image .image :hover img {
+  .speaker .image:hover img {
     opacity: 1; } }
 
 /* Separation of subsections
