@@ -160,8 +160,10 @@
 
 .speaker-bio
   background: white
-  max-width: 300px
   position: relative
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    max-width: 300px
 
 /* ----------------------------------------------------------------------------------
  * Whoisit heading
@@ -362,9 +364,6 @@
   width: 100%
   position: relative
   overflow: hidden
-
-  img
-    height: 100%
 
   &:after
     +overlay(10)

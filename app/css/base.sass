@@ -2,6 +2,7 @@
 @import utils/reset
 @import utils/typography
 @import utils/fontawesome
+@import utils/respond
 
 // ----------------------------------------------------------------------------
 // Base
@@ -37,13 +38,18 @@ a
   text-decoration: none
   +transition(color 40ms linear)
 
+.fillsize
+  position: relative
+  overflow: hidden
+
 // ----------------------------------------------------------------------------
 // Sections
 
 .section
   &.tickets, &.faq, &.schedule, &.about, &.contact
-    padding-top: $pad*7
-    padding-bottom: $pad*7
+    +respond(padding-top, 0, $pad*7)
+    +respond(padding-bottom, 0, $pad*7)
+
     border-top: solid 1px rgba(black, 0.15)
     box-shadow: inset 0 4px 5px -4px rgba(black, 0.1)
     background: white
@@ -73,6 +79,6 @@ a
 
 @media (max-width: 480px) /* Mobile */
   .section
-    &.tickets, &.about, &.location, &.faq, &.contact, &.schedule
+    &.tickets, &.about, &.faq, &.contact
       display: none !important
 
