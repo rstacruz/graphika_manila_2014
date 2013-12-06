@@ -13,9 +13,16 @@
 // really), and `overflow: hidden`.
 
 (function($) {
+  var count = 0;
+
   $.fn.fillsize = function(selector) {
     var $parent = this;
     var $img;
+
+    // Save the tag so that it can be unbound later.
+    count++;
+    var tag = ".fillsize.fillsize-"+count;
+    $parent.data('fillsize:tag', tag);
 
     function resize() {
       if (!$img) $img = $parent.find(selector);
@@ -24,7 +31,8 @@
         if (!this.complete) return;
         var $img = $(this);
 
-        var parent = { height: $parent.innerHeight(), width: $parent.innerWidth() };
+        var $relparent = $img.closest($parent);
+        var parent = { height: $relparent.innerHeight(), width: $relparent.innerWidth() };
         var imageRatio     = $img.width() / $img.height();
         var containerRatio = parent.width / parent.height;
 
@@ -52,17 +60,17 @@
     }
 
     // Make it happen on window resize.
-    $(window).resize(resize);
+    $(window).on('resize'+tag, resize);
 
     // Allow manual invocation by doing `.trigger('fillsize')` on the container.
-    $(document).on('fillsize', $parent.selector, resize);
+    $(document).on('fillsize'+tag, $parent.selector, resize);
 
     // Resize on first load (or immediately if called after).
     $(function() {
       // If the child is an image, fill it up when image's real dimensions are
       // first determined. Needs to be .bind() because the load event will
       // bubble up.
-      $(selector, $parent).bind('load', function() {
+      $(selector, $parent).bind('load'+tag, function() {
         setTimeout(resize, 25);
       });
 
