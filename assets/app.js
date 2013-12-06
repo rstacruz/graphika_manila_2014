@@ -90,15 +90,47 @@
   globals.require.list = list;
   globals.require.brunch = true;
 })();
-// ----------------------------------------------------------------------------
+(function ($) {
+
+  $.monitorHover = function (options) {
+    var y = options.y || 10;
+    var mercy = options.mercy || 10;
+    var over = false;
+    $(document).on('mousemove', function (e) {
+      if (e.clientY < y && !over) {
+        over = true;
+        $(document).trigger('over:on');
+      } else if (e.clientY > (y + mercy) && over) {
+        over = false;
+        $(document).trigger('over:off');
+      }
+    });
+  };
+
+})(jQuery);
+
+
+
+;// ----------------------------------------------------------------------------
 // Auto-height thing
 
 $(function () {
-  $(window).on('resize.fill', function () {
-    $('.speakers .item').css({ height: $(window).innerHeight() });
-    $('.speaker.section').css({ height: $(window).innerHeight() * 1.5 });
+  Harvey.attach('(min-width: 480px)', {
+
+    on: function () {
+      $(window).on('resize.fill', function () {
+        $('.speakers .item').css({ height: $(window).innerHeight() });
+        $('.speaker.section').css({ height: $(window).innerHeight() * 1.5 });
+      });
+      $(window).trigger('resize.fill');
+    },
+
+    off: function () {
+      $('.speakers .item').css({ height: null });
+      $('.speaker.section').css({ height: null });
+      $(window).off('resize.fill');
+    }
   });
-  $(window).trigger('resize.fill');
 });
 
 // ----------------------------------------------------------------------------
@@ -153,23 +185,6 @@ if (window.history && window.history.replaceState) {
 } else {
   $.replaceHash = function(){};
 }
-
-// ----------------------------------------------------------------------------
-$.monitorHover = function (options) {
-  var y = options.y || 10;
-  var mercy = options.mercy || 10;
-  var over = false;
-  $(document).on('mousemove', function (e) {
-    console.log(e.clientY, y, over);
-    if (e.clientY < y && !over) {
-      over = true;
-      $(document).trigger('over:on');
-    } else if (e.clientY > (y + mercy) && over) {
-      over = false;
-      $(document).trigger('over:off');
-    }
-  });
-};
 
 // ----------------------------------------------------------------------------
 
