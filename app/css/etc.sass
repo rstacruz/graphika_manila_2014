@@ -1,6 +1,8 @@
 @import common
 @import utils/typography
 @import utils/respond
+@import utils/button
+@import utils/overlay
 @import utils/fontawesome
 
 // ----------------------------------------------------------------------------
@@ -17,15 +19,112 @@
       +respond(margin-top, $pad/2, $pad)
       border-top: solid 1px rgba(black, 0.1)
 
+/* ----------------------------------------------------------------------------------
+ */
+
+.section.about-banner
+  background: #111
+  padding: 0
+  +respond(padding, 75px 20px, 100px 20px, 125px 20px)
+  text-shadow: 0 0 10px rgba(black, 0.8)
+
+  img
+    opacity: 0.4
+
+  &:after
+    +overlay
+    +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba(black, 0.5)))
+
+  h3
+    +lite-type
+    color: $beige
+    +respond(font-size, 20px, 34px, 40px)
+
+  span
+    margin-right: 2.5em
+    vertical-align: middle
+    display: inline-block
+
+  @media (max-width: 480px) /* Mobile */
+    &
+      text-align: center
+    span
+      margin: 0 0.5em
+
+  h3
+    float: left
+
+  a
+    @media (max-width: 480px) /* Mobile */
+      margin-top: $pad
+      padding: 8px 20px
+      font-size: 1.3em
+
+    @media (min-width: 480px) /* Tablet & Desktop */
+      float: right
+      padding: 15px 30px
+      font-size: 1.7em
+
+    color: white
+    display: block
+    +lite-type
+    +fa-icon(angle-right, 1em, $top: -2px, $margin: 10px, $position: after)
+
+    +button-base
+    +button-lite($color: white, $border: 4px)
+
 // ----------------------------------------------------------------------------
 .section.about, .section.contact
   background: $darkgrey
   color: #999
 
+  a
+    color: mix($beige, $darkgrey, 30%)
+
+  a:hover
+    color: mix($beige, $darkgrey, 40%)
+
   h2
-    color: $beige
+    color: mix($beige, $darkgrey, 30%)
+    +lite-type
+    font-size: 1.2em
 
   p
-    width: 66%
     margin-bottom: $pad
     +antialias
+
+.section.about
+  p strong
+    font-weight: bold
+    color: white
+
+  p.pullquote
+    font-size: 1.2em
+    color: #555
+    +lite-type
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    p
+      width: 33%
+      float: left
+      padding-right: 30px
+
+    p.pullquote
+      font-size: 1.8em
+      width: 100%
+
+      margin-bottom: $pad*1.5
+      padding-bottom: $pad*1.5
+      border-bottom: solid 1px rgba(white, 0.1)
+
+// ----------------------------------------------------------------------------
+.section.contact
+  box-shadow: none
+  border-top: solid 1px rgba(white, 0.1)
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    .details
+      +span-columns(6)
+    .form
+      +span-columns(6)
+      +omega
