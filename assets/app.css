@@ -689,7 +689,9 @@ a {
   @media (max-width: 480px) {
     .title-card {
       background-image: url(../images/bg-title-m.jpg);
-      background-size: 100% auto; }
+      background-size: 100% auto;
+      background-position: center top;
+      background-repeat: no-repeat; }
       .title-card .bg {
         display: none; } }
   .title-card .content {
