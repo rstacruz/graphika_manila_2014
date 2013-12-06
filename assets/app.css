@@ -721,13 +721,19 @@ a {
 @media (min-width: 768px) {
   .title-card .logo {
     height: 137.5px; } }
+.title-card .logo .styled, .title-card .logo .normal {
+  display: none; }
 @media (max-width: 480px) {
   .title-card .logo {
-    margin: 50px auto 80px auto; } }
+    margin: 50px auto 80px auto; }
+    .title-card .logo .styled {
+      display: block; } }
 @media (min-width: 480px) {
   .title-card .logo {
     margin-left: auto;
-    margin-bottom: 200px; } }
+    margin-bottom: 200px; }
+    .title-card .logo .normal {
+      display: block; } }
 @media (min-width: 768px) {
   .title-card .logo {
     margin-bottom: 400px; } }
