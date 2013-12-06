@@ -17,10 +17,10 @@
   +respond(padding-bottom, $pad, $pad*5, $pad*10)
 
   .heading
-    color: rgba($red, 0.9)
+    color: $yellow
 
   .heading h2:after
-    border-top-color: rgba($red, 0.5)
+    border-top-color: $yellow
 
 /* ----------------------------------------------------------------------------------
  * Background
@@ -45,21 +45,15 @@
     overflow: hidden
 
   .items
-    +transition(-webkit-transform 400ms ease)
-
-  = wash
-    content: ''
-    display: block
-    position: absolute
-    bottom: 0
-    left: 0
-
-    width: 100%
-    height: 100%
+    +transition(600ms ease)
 
   .item:after
     +overlay(10)
     +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba(black, 0.5)))
+
+  // .item:before
+  //   +overlay(10)
+  //   background: url(../images/bg-screen.png)
 
 /*
  * Background fading
@@ -152,11 +146,11 @@
 
   // Fading thing
   @media (min-width: 480px) /* Tablet & Desktop */
-    .image img
+    img
       opacity: 0.3
       +transition(opacity 50ms linear)
 
-    .image :hover img
+    &:hover img
       opacity: 1
 
 /*
