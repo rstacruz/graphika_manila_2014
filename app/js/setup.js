@@ -7,7 +7,7 @@ $(function () {
     on: function () {
       $(window).on('resize.fill', function () {
         $('.speakers .item').css({ height: $(window).innerHeight() });
-        $('.speaker.section').css({ height: $(window).innerHeight() * 1.5 });
+        $('.speaker.section').css({ height: $(window).innerHeight() });
       });
       $(window).trigger('resize.fill');
     },
@@ -20,25 +20,34 @@ $(function () {
   });
 });
 
+// ----------------------------------------------------------------------------
+// Restructuring the speakers
+
 $(function () {
   var $speakers, $contents, $backdrops, len;
 
-  Harvey.attach('(min-width: 480px)', {
+  Harvey.attach('(min-width: 1024px)', {
     setup: function () {
       $speakers = $(".speaker");
-      $contents = $(".speaker .content");
+      $contents = $(".speaker .content:first-child");
       $backdrops = $(".speakers > .bg .item");
       len = $speakers.length;
     },
     on: function () {
+      $('.speakers').addClass('magic');
       for (var i=0; i<len; ++i) {
         $contents.eq(i).appendTo($backdrops.eq(i));
+        $("<div class='whoisit'>")
+          .html($contents.eq(i).find('.info.name').html())
+          .appendTo($contents.eq(i));
       }
     },
     off: function () {
+      $('.speakers').removeClass('magic');
       for (var i=0; i<len; ++i) {
         $contents.eq(i).appendTo($speakers.eq(i));
       }
+      $(".whoisit").remove();
     }
   });
 });
@@ -53,6 +62,8 @@ $(function () {
   $('.section[id], .m-section').scrollagent({
     xform: function (y, range, height) { return y + height * 0.8; }
   }, function (cid, pid, el, previous) {
+    $(el).addClass('active');
+    $(previous).removeClass('active');
     $(document).trigger('section', cid);
     $('html')
       .toggleClass(getClass($(previous)), false)

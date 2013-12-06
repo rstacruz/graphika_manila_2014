@@ -27,6 +27,44 @@
       display: none
 
 /* ----------------------------------------------------------------------------------
+ * Scroll guides
+ */
+
+.speakers.magic
+  padding-top: 0 !important
+  padding-bottom: 0 !important
+
+  .speaker:before,
+  .speaker:after
+    content: ''
+    display: block
+    position: absolute
+
+  // Small ticks
+  .speaker:before
+    top: 0
+    left: 15px
+
+    width: 10px
+    height: 100%
+    +background-image(linear-gradient(top, white 0px, rgba(black, 0.3) 1px, rgba(white, 0.0) 2px, rgba(white, 0.0)))
+    background-size: 20px 20px
+
+  // Large ticks
+  .speaker:after
+    bottom: 0
+    left: 10px
+
+    width: 20px
+    height: 2px
+    background: white
+    box-shadow: 0 0 6px rgba(black, 0.4)
+    
+.speakers.magic
+  .info.name
+    display: none
+
+/* ----------------------------------------------------------------------------------
  * Background
  */
 
@@ -52,6 +90,7 @@
   .item
     position: relative
     overflow: hidden
+    border-top: solid 2px white
 
   .items
     +transition(600ms ease)
@@ -112,10 +151,23 @@
   @media (min-width: 480px) /* Tablet & Desktop */
     min-height: 750px
 
+
 .speaker-bio
   background: white
   max-width: 300px
   position: relative
+
+.whoisit
+  color: white
+  text-shadow: 0 0 14px rgba(black, 0.3)
+  margin-top: 100px
+
+  h3
+    font-size: 4em
+    +heading-type
+
+  p
+    +subheading-type
 
 /* ----------------------------------------------------------------------------------
  * Speaker avatar
