@@ -918,8 +918,11 @@ a {
 .buy-box .buy-button:after, .popup-menu a:after {
   content: "\f105"; }
 
-.section.tickets .heading h2 {
-  color: #a6d01d; }
+.section.tickets {
+  background-image: url(../images/bg-doodle.jpg);
+  background-size: 500px auto; }
+  .section.tickets .heading h2 {
+    color: #a6d01d; }
 
 .ticket-list {
   width: 100%;
