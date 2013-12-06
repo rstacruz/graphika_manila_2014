@@ -127,12 +127,20 @@ a {
       padding-left: 40px;
       padding-right: 40px; } }
 
-/* ----------------------------------------------------------------------------------
- * Temporarily disable other stuff
- */
-@media (max-width: 480px) {
-  .section.about, .section.contact {
-    display: none !important; } }
+.section.about-banner a:after {
+  line-height: 1em;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale; }
+
+.section.about-banner a:after {
+  content: "\f105"; }
 
 .heading {
   font-size: 2.5em; }
@@ -169,17 +177,170 @@ a {
         .heading h2:after {
           margin-top: 20px; } }
 
+/* ----------------------------------------------------------------------------------
+ */
+.section.about-banner {
+  background: #111111;
+  padding: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8); }
+  .section.about-banner {
+    padding: 75px 20px; }
+  @media (min-width: 480px) {
+    .section.about-banner {
+      padding: 100px 20px; } }
+  @media (min-width: 768px) {
+    .section.about-banner {
+      padding: 125px 20px; } }
+  .section.about-banner img {
+    opacity: 0.4; }
+  .section.about-banner:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-pointer-events: none;
+    -moz-pointer-events: none;
+    pointer-events: none;
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5)); }
+  .section.about-banner h3 {
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fcf4d6; }
+    .section.about-banner h3 {
+      font-size: 20px; }
+    @media (min-width: 480px) {
+      .section.about-banner h3 {
+        font-size: 34px; } }
+    @media (min-width: 768px) {
+      .section.about-banner h3 {
+        font-size: 40px; } }
+  .section.about-banner span {
+    margin-right: 2.5em;
+    vertical-align: middle;
+    display: inline-block; }
+  @media (max-width: 480px) {
+    .section.about-banner {
+      text-align: center; }
+    .section.about-banner span {
+      margin: 0 0.5em; } }
+  .section.about-banner h3 {
+    float: left; }
+  .section.about-banner a {
+    color: white;
+    display: block;
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 0 0 4px white; }
+    @media (max-width: 480px) {
+      .section.about-banner a {
+        margin-top: 20px;
+        padding: 8px 20px;
+        font-size: 1.3em; } }
+    @media (min-width: 480px) {
+      .section.about-banner a {
+        float: right;
+        padding: 15px 30px;
+        font-size: 1.7em; } }
+    .section.about-banner a:after {
+      margin-left: 10px;
+      font-size: 1em;
+      position: relative;
+      top: -2px; }
+    .section.about-banner a:hover {
+      background: #01bab5;
+      box-shadow: none;
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+    .section.about-banner a:active, .section.about-banner a.active {
+      box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
+      background: #01bab5;
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+
 .section.about, .section.contact {
   background: #212121;
   color: #999999; }
+  .section.about a, .section.contact a {
+    color: #626057; }
+  .section.about a:hover, .section.contact a:hover {
+    color: #787569; }
   .section.about h2, .section.contact h2 {
-    color: #fcf4d6; }
+    color: #626057;
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.2em; }
   .section.about p, .section.contact p {
-    width: 66%;
     margin-bottom: 20px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+
+.section.about p strong {
+  font-weight: bold;
+  color: white; }
+.section.about p.pullquote {
+  font-size: 1.2em;
+  color: #555555;
+  font-family: oswald, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+@media (min-width: 480px) {
+  .section.about p {
+    width: 33%;
+    float: left;
+    padding-right: 30px; }
+  .section.about p.pullquote {
+    font-size: 1.8em;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1); } }
+
+.section.contact {
+  box-shadow: none;
+  border-top: solid 1px rgba(255, 255, 255, 0.1); }
+  @media (min-width: 480px) {
+    .section.contact .details {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .section.contact .details:last-child {
+        margin-right: 0; }
+    .section.contact .form {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-right: 0; }
+      .section.contact .form:last-child {
+        margin-right: 0; } }
 
 .faq-list strong:after {
   line-height: 1em;
@@ -467,10 +628,12 @@ a {
   .section.schedule .actions a:hover {
     background: #01bab5;
     box-shadow: none;
-    color: white; }
+    color: white;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
   .section.schedule .actions a:active, .section.schedule .actions a.active {
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
-    color: white; }
+    color: white;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
 .section.schedule .map-link:before {
   margin-right: 4px;
   font-size: 14px;
@@ -1181,10 +1344,12 @@ a {
     .buy-box .buy-button:hover {
       background: #01bab5;
       box-shadow: none;
-      color: white; }
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
     .buy-box .buy-button:active, .buy-box .buy-button.active {
       box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
-      color: white; }
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
     .buy-box .buy-button:after {
       margin-left: 8px;
       font-size: 1em;
