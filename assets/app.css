@@ -547,6 +547,40 @@ a {
     display: none; } }
 
 /* ----------------------------------------------------------------------------------
+ * Scroll guides
+ */
+.speakers.magic {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+  .speakers.magic .speaker:before,
+  .speakers.magic .speaker:after {
+    content: "";
+    display: block;
+    position: absolute; }
+  .speakers.magic .speaker:before {
+    top: 0;
+    left: 15px;
+    width: 10px;
+    height: 100%;
+    background-image: -webkit-linear-gradient(top, white 0px, rgba(0, 0, 0, 0.3) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to bottom, white 0px, rgba(0, 0, 0, 0.3) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0));
+    background-size: 20px 20px; }
+  .speakers.magic .speaker:after {
+    bottom: 0;
+    left: 10px;
+    width: 20px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4); }
+
+.speakers.magic .speaker {
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  pointer-events: none; }
+.speakers.magic .info.name {
+  display: none; }
+
+/* ----------------------------------------------------------------------------------
  * Background
  */
 @media (max-width: 480px) {
@@ -555,7 +589,8 @@ a {
 .speakers > .bg .content {
   padding-top: 40px;
   position: relative;
-  z-index: 20; }
+  z-index: 20;
+  height: 100%; }
 .speakers > .bg {
   background: #212121;
   width: 100%;
@@ -566,7 +601,8 @@ a {
   z-index: 0; }
 .speakers > .bg .item {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  border-top: solid 2px white; }
 .speakers > .bg .items {
   -webkit-transition: 600ms ease;
   -moz-transition: 600ms ease;
@@ -583,8 +619,8 @@ a {
   -moz-pointer-events: none;
   pointer-events: none;
   z-index: 10;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5)); }
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 18, 18, 0.7));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 18, 18, 0.7)); }
 
 /* Background fading
  */
@@ -665,6 +701,54 @@ a {
   background: white;
   max-width: 300px;
   position: relative; }
+
+/* ----------------------------------------------------------------------------------
+ * Whoisit heading
+ */
+.whoisit {
+  color: white;
+  text-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+  .whoisit h3 {
+    font-size: 5em;
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  .whoisit p {
+    font-size: 1.1em;
+    font-family: museo-slab, sans-serif;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fcf4d6;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 20px; }
+  .whoisit p:before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: teal;
+    margin-bottom: 10px; }
+  .whoisit p:first-of-type {
+    color: #cdd94a; }
+
+.whoisit {
+  position: absolute;
+  bottom: 60px;
+  left: 40px; }
 
 /* ----------------------------------------------------------------------------------
  * Speaker avatar
@@ -885,7 +969,7 @@ a {
 @media (min-width: 480px) {
   .title-card .logo {
     margin-left: auto;
-    margin-bottom: 200px; }
+    margin-bottom: 300px; }
     .title-card .logo .normal {
       display: block; } }
 @media (min-width: 768px) {
