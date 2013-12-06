@@ -8,7 +8,10 @@
 
 $bpad: $pad * 2
 
-.schedule
+.section.schedule
+  background-image: url(../images/bg-doodle.jpg)
+  background-size: 500px auto
+
   .heading h2 em
     margin-left: 20px
     color: $teal
@@ -19,6 +22,8 @@ $bpad: $pad * 2
   .map.column
     background: #eee
     +respond(height, 150px, 300px)
+    border: solid 4px white
+    box-shadow: 0 0 0 3px #eee
 
   @media (min-width: 480px) /* Tablet & Desktop */
     .map.column
@@ -48,6 +53,40 @@ $bpad: $pad * 2
 
   h3 em
     color: $lime
+
+/* ----------------------------------------------------------------------------------
+ */
+
+.section.schedule
+  .actions
+    margin-top: $pad
+
+  .actions a
+    color: #606060
+    display: inline-block
+    padding: 7px 20px
+    margin-right: 10px
+    border-radius: 22px
+    box-shadow: inset 0 0 0 2px #606060
+
+    font-size: 0.9em
+    +heading-type
+
+    &:hover
+      background: $teal
+      box-shadow: none
+      color: white
+
+    &:active
+      box-shadow: inset 1px 2px 3px rgba(black, 0.2)
+      color: white
+
+  .map-link
+    +fa-icon(map-marker, 14px, $margin: 4px, $top: -1px)
+  .ext-link
+    +fa-icon(link, 14px, $margin: 4px)
+
+
 
 /* ----------------------------------------------------------------------------------
  * Cards:
