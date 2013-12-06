@@ -542,6 +542,9 @@ a {
   color: #cdd94a; }
 .speakers .heading h2:after {
   border-top-color: #cdd94a; }
+@media (min-width: 480px) {
+  .speakers .heading {
+    display: none; } }
 
 /* ----------------------------------------------------------------------------------
  * Background
@@ -549,6 +552,10 @@ a {
 @media (max-width: 480px) {
   .speakers > .bg {
     display: none; } }
+.speakers > .bg .content {
+  padding-top: 40px;
+  position: relative;
+  z-index: 20; }
 .speakers > .bg {
   background: #212121;
   width: 100%;
@@ -587,7 +594,7 @@ a {
   -moz-transition: opacity 500ms linear;
   transition: opacity 500ms linear; }
   .section-schedule .speakers > .bg, .section-tickets .speakers > .bg, .section-speakers .speakers > .bg {
-    opacity: 0.9; }
+    opacity: 1; }
 
 /* Fancy movement
  * The <html> elements gets `.section-speaker-0` classes, make it react
@@ -662,7 +669,7 @@ a {
 /* ----------------------------------------------------------------------------------
  * Speaker avatar
  */
-.speaker .image {
+.speaker-bio .image {
   width: 140px;
   height: 140px;
   background: #b61521;
@@ -670,7 +677,7 @@ a {
   position: relative;
   z-index: 10; }
 @media (max-width: 480px) {
-  .speaker .image {
+  .speaker-bio .image {
     float: right;
     width: 90px;
     height: 90px;
@@ -681,54 +688,54 @@ a {
     box-sizing: content-box;
     padding: 4px;
     background: white; }
-    .speaker .image, .speaker .image img {
+    .speaker-bio .image, .speaker-bio .image img {
       border-radius: 50%; } }
 @media (min-width: 480px) {
-  .speaker .image {
+  .speaker-bio .image {
     position: absolute;
     top: 0;
     right: -140px; } }
-.speaker .image img {
+.speaker-bio .image img {
   display: block;
   width: 100%;
   height: 100%; }
 @media (min-width: 480px) {
-  .speaker .image img {
+  .speaker-bio .image img {
     opacity: 0.3;
     -webkit-transition: opacity 50ms linear;
     -moz-transition: opacity 50ms linear;
     transition: opacity 50ms linear; }
-  .speaker .image:hover img {
+  .speaker-bio .image:hover img {
     opacity: 1; } }
 
 /* Separation of subsections
  */
 @media (max-width: 480px) {
-  .speaker .info {
+  .speaker-bio .info {
     padding: 20px; }
-  .speaker .info + .info {
+  .speaker-bio .info + .info {
     padding-top: 0; } }
 @media (min-width: 480px) {
-  .speaker .info {
+  .speaker-bio .info {
     padding: 20px; }
-  .speaker .info + .info {
+  .speaker-bio .info + .info {
     border-top: solid 1px #eeeeee; } }
 
 /* Biography
  */
-.speaker .bio {
+.speaker-bio .bio {
   font-size: 1em; }
 @media (min-width: 480px) {
-  .speaker .bio {
+  .speaker-bio .bio {
     font-size: 0.9em; } }
-.speaker .bio {
+.speaker-bio .bio {
   line-height: 1.5; }
 @media (min-width: 480px) {
-  .speaker .bio {
+  .speaker-bio .bio {
     line-height: 1.6; } }
-.speaker .bio p + p {
+.speaker-bio .bio p + p {
   margin-top: 10px; }
-.speaker h3 {
+.speaker-bio h3 {
   font-family: oswald, sans-serif;
   letter-spacing: 1px;
   font-weight: 300;
@@ -739,7 +746,7 @@ a {
   font-size: 1.9em;
   color: #01bab5;
   line-height: 1.3; }
-.speaker .name p {
+.speaker-bio .name p {
   font-family: museo-slab, sans-serif;
   font-weight: 800;
   letter-spacing: -1px;
@@ -749,7 +756,7 @@ a {
   -moz-osx-font-smoothing: grayscale;
   color: #a6d01d;
   line-height: 1.4; }
-.speaker .name p.who {
+.speaker-bio .name p.who {
   font-weight: bold; }
 
 /* ----------------------------------------------------------------------------------
@@ -789,17 +796,17 @@ a {
 /* ----------------------------------------------------------------------------------
  * Speaker: sample work
  */
-.speaker .sample-work {
+.speaker-bio .sample-work {
   height: 250px;
   width: 100%;
   position: relative;
   overflow: hidden; }
   @media (min-width: 480px) {
-    .speaker .sample-work {
+    .speaker-bio .sample-work {
       display: none; } }
-  .speaker .sample-work img {
+  .speaker-bio .sample-work img {
     height: 100%; }
-  .speaker .sample-work:after {
+  .speaker-bio .sample-work:after {
     content: "";
     display: block;
     position: absolute;
