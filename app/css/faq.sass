@@ -1,0 +1,74 @@
+@import common
+@import utils/typography
+@import utils/fontawesome
+@import utils/respond
+
+/* ----------------------------------------------------------------------------------
+ * FAQ listing
+ */
+
+.faq-list
+  ul
+    +clearfix
+
+  li
+    margin-bottom: $pad
+
+  strong
+    display: block
+    +subheading-type
+    font-size: 1.2em
+    color: $teal
+    +fa-icon(quote-right, 0.8em, $position: after, $color: rgba(black, 0.2), $margin: 10px)
+
+    @media (max-width: 480px) /* Mobile */
+      margin-bottom: 0.5em
+
+  p
+    display: block
+    +respond(padding-bottom, $pad/2, $pad)
+
+    @media (max-width: 480px) /* Mobile */
+      line-height: 1.6
+
+  // Horizontal line divider
+  // -----------------------
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    strong + p
+      +hr(before)
+        width: 15px
+        height: 2px
+        background: rgba(black, 0.2)
+        margin: 1em 0
+
+// Alt colors
+// ----------
+.faq-list li
+  &
+    border-top: solid 2px $teal
+    +respond(padding-top, $pad/2, $pad)
+    +respond(margin-bottom, $pad, $pad*2)
+
+  @media (min-width: 480px) and (max-width: 768px)
+    +span-columns(6)
+    +omega(2n)
+
+  @media (min-width: 768px) /* Desktop */
+    +span-columns(4)
+    +omega(3n)
+
+  &:nth-child(4n+1)
+    border-top-color: $red
+    strong
+      color: $red
+
+  &:nth-child(4n+2)
+    border-top-color: $lime
+    strong
+      color: $lime*0.8
+
+  &:nth-child(4n+4)
+    border-top-color: $yellow*0.9
+    strong
+      color: $yellow*0.7

@@ -30,6 +30,12 @@
     background-image: url(../images/bg-doodle-dark.jpg)
     background-size: 300px auto
 
+    // Reduce it just for this section
+    .heading > .content,
+    .speaker > .content
+      padding-left: 10px
+      padding-right: 10px
+
 /* ----------------------------------------------------------------------------------
  * Scroll guides
  */
@@ -63,7 +69,7 @@
     height: 2px
     background: white
     box-shadow: 0 0 6px rgba(black, 0.4)
-    
+
 .speakers.magic
   .speaker
     -webkit-pointer-events: none
@@ -340,13 +346,13 @@
 
   a[href*='twitter.com']:before
     @extend %fa-twitter
-    
+
   a[href*='dribbble.com']:before
     @extend %fa-dribbble
-    
+
   a[href*='youtube.com']:before
     @extend %fa-youtube-play
-    
+
   a[href*='flickr']:before
     @extend %fa-flickr
 
