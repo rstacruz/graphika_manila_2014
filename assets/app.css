@@ -74,12 +74,24 @@ a {
   -moz-transition: color 40ms linear;
   transition: color 40ms linear; }
 
+.fillsize {
+  position: relative;
+  overflow: hidden; }
+
 .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
-  padding-top: 140px;
-  padding-bottom: 140px;
   border-top: solid 1px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.1);
   background: white; }
+  .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
+    padding-top: 0; }
+  @media (min-width: 480px) {
+    .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
+      padding-top: 140px; } }
+  .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
+    padding-bottom: 0; }
+  @media (min-width: 480px) {
+    .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
+      padding-bottom: 140px; } }
 .section {
   position: relative;
   z-index: 10; }
@@ -106,23 +118,8 @@ a {
  * Temporarily disable other stuff
  */
 @media (max-width: 480px) {
-  .section.tickets, .section.about, .section.location, .section.faq, .section.contact, .section.schedule {
+  .section.tickets, .section.about, .section.faq, .section.contact {
     display: none !important; } }
-
-.schedule-cards dt:after {
-  line-height: 1em;
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  text-decoration: none;
-  vertical-align: middle;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale; }
-
-.schedule-cards dt:after {
-  content: "\f105"; }
 
 .heading {
   font-size: 2.5em; }
@@ -272,103 +269,6 @@ a {
   .pass-reminders li {
     margin-bottom: 5px; }
 
-.schedule .heading h2 em {
-  margin-left: 20px;
-  color: #01bab5; }
-.schedule .map.column {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  background: #eeeeee;
-  height: 300px; }
-  .schedule .map.column:last-child {
-    margin-right: 0; }
-.schedule .info.column {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  padding-left: 20px; }
-  .schedule .info.column:last-child {
-    margin-right: 0; }
-.schedule .subsection {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: solid 1px #eeeeee; }
-.schedule .address strong {
-  font-family: oswald, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.3em;
-  line-height: 1.6; }
-.schedule h3 {
-  line-height: 1.1;
-  font-size: 1.3em; }
-.schedule h3 strong {
-  font-family: oswald, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.3em;
-  margin-right: 10px; }
-.schedule h3 em {
-  color: #a6d01d; }
-
-.schedule-cards {
-  display: table;
-  width: 100%; }
-.schedule-cards dl {
-  display: table-cell;
-  width: 33.3%;
-  padding-right: 20px;
-  vertical-align: middle;
-  line-height: 1.3; }
-.schedule-cards dl:first-child {
-  border-left: 0; }
-.schedule-cards dt {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: solid 2px #a6d01d;
-  font-family: oswald, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-  .schedule-cards dt:after {
-    margin-left: 10px;
-    font-size: 16px;
-    position: relative;
-    top: -1px;
-    color: #dddddd; }
-.schedule-cards dl + dl dt {
-  border-bottom-color: #cdd94a; }
-.schedule-cards dl + dl + dl dt {
-  border-bottom-color: #01bab5; }
-.schedule-cards dd {
-  font-family: museo-slab, sans-serif;
-  font-weight: 800;
-  letter-spacing: -1px;
-  text-transform: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 2em;
-  color: #a6d01d; }
-.schedule-cards dl + dl dd {
-  color: #cdd94a; }
-.schedule-cards dl + dl + dl dd {
-  color: #01bab5; }
-
 .faq-list ul:after {
   content: "";
   display: table;
@@ -481,6 +381,144 @@ a {
   -ms-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
+
+.schedule-cards dt:after {
+  line-height: 1em;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale; }
+
+.schedule-cards dt:after {
+  content: "\f105"; }
+
+.schedule .heading h2 em {
+  margin-left: 20px;
+  color: #01bab5; }
+.schedule .column {
+  margin-bottom: 20px; }
+.schedule .map.column {
+  background: #eeeeee; }
+  .schedule .map.column {
+    height: 150px; }
+  @media (min-width: 480px) {
+    .schedule .map.column {
+      height: 300px; } }
+@media (min-width: 480px) {
+  .schedule .map.column {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .schedule .map.column:last-child {
+      margin-right: 0; }
+  .schedule .info.column {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    padding-left: 20px; }
+    .schedule .info.column:last-child {
+      margin-right: 0; } }
+.schedule .subsection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: solid 1px #eeeeee; }
+.schedule .address strong {
+  font-family: oswald, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.3em;
+  line-height: 1.6; }
+.schedule h3 {
+  line-height: 1.1;
+  font-size: 1.3em; }
+.schedule h3 strong {
+  font-family: oswald, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.3em;
+  margin-right: 10px; }
+.schedule h3 em {
+  color: #a6d01d; }
+
+/* ----------------------------------------------------------------------------------
+ * Cards:
+ */
+.schedule-cards {
+  display: table;
+  width: 100%; }
+.schedule-cards dl {
+  display: table-cell;
+  width: 33.3%;
+  padding: 0 10px;
+  vertical-align: middle;
+  line-height: 1.3; }
+.schedule-cards dl:first-child {
+  border-left: 0;
+  padding-left: 0; }
+.schedule-cards dl:last-child {
+  padding-right: 0; }
+.schedule-cards dt {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: solid 2px #a6d01d;
+  font-family: oswald, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 1.5em;
+  line-height: 1.5em;
+  overflow: hidden;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+  .schedule-cards dt:after {
+    margin-left: 10px;
+    font-size: 16px;
+    position: relative;
+    top: -1px;
+    color: #dddddd; }
+@media (max-width: 768px) {
+  .schedule-cards dt:after {
+    display: none; } }
+@media (max-width: 480px) {
+  .schedule-cards dd, .schedule-cards dt {
+    text-align: center; } }
+.schedule-cards dl + dl dt {
+  border-bottom-color: #cdd94a; }
+.schedule-cards dl + dl + dl dt {
+  border-bottom-color: #01bab5; }
+.schedule-cards dd {
+  font-family: museo-slab, sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 2em;
+  color: #a6d01d; }
+.schedule-cards dl + dl dd {
+  color: #cdd94a; }
+.schedule-cards dl + dl + dl dd {
+  color: #01bab5; }
 
 .ext-links a:before {
   line-height: 1em;
@@ -699,8 +737,10 @@ a {
 
 .speaker-bio {
   background: white;
-  max-width: 300px;
   position: relative; }
+  @media (min-width: 480px) {
+    .speaker-bio {
+      max-width: 300px; } }
 
 /* ----------------------------------------------------------------------------------
  * Whoisit heading
@@ -888,8 +928,6 @@ a {
   @media (min-width: 480px) {
     .speaker-bio .sample-work {
       display: none; } }
-  .speaker-bio .sample-work img {
-    height: 100%; }
   .speaker-bio .sample-work:after {
     content: "";
     display: block;
