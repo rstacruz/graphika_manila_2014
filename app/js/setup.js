@@ -20,6 +20,28 @@ $(function () {
   });
 });
 
+$(function () {
+  var $speakers, $contents, $backdrops, len;
+
+  Harvey.attach('(min-width: 480px)', {
+    setup: function () {
+      $speakers = $(".speaker");
+      $contents = $(".speaker .content");
+      $backdrops = $(".speakers > .bg .item");
+      len = $speakers.length;
+    },
+    on: function () {
+      for (var i=0; i<len; ++i) {
+        $contents.eq(i).appendTo($backdrops.eq(i));
+      }
+    },
+    off: function () {
+      for (var i=0; i<len; ++i) {
+        $contents.eq(i).appendTo($speakers.eq(i));
+      }
+    }
+  });
+});
 // ----------------------------------------------------------------------------
 // Speaker animation
 

@@ -22,6 +22,10 @@
   .heading h2:after
     border-top-color: $yellow
 
+  @media (min-width: 480px) /* Tablet & Desktop */
+    .heading
+      display: none
+
 /* ----------------------------------------------------------------------------------
  * Background
  */
@@ -29,6 +33,11 @@
 .speakers >.bg
   @media (max-width: 480px) /* Mobile */
     display: none
+
+  .content
+    padding-top: $pad*2
+    position: relative
+    z-index: 20
 
   &
     background: $darkgrey
@@ -66,7 +75,7 @@
   .section-schedule &,
   .section-tickets &,
   .section-speakers &
-    opacity: 0.9
+    opacity: 1.0
 
 /*
  * Fancy movement
@@ -112,7 +121,7 @@
  * Speaker avatar
  */
 
-.speaker .image
+.speaker-bio .image
   &
     width: 140px
     height: 140px
@@ -157,7 +166,7 @@
  * Separation of subsections
  */
 
-.speaker
+.speaker-bio
   @media (max-width: 480px) /* Mobile */
     .info
       padding: 20px
@@ -174,7 +183,7 @@
  * Biography
  */
 
-.speaker
+.speaker-bio
   .bio
     +respond(font-size, 1em, 0.9em)
     +respond(line-height, 1.5, 1.6)
@@ -262,7 +271,7 @@
  * Speaker: sample work
  */
 
-.speaker .sample-work
+.speaker-bio .sample-work
   @media (min-width: 480px) /* Tablet & Desktop */
     display: none
 
