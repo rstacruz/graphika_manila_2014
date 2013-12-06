@@ -672,10 +672,10 @@ a {
 @media (max-width: 480px) {
   .speaker .image {
     float: right;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     margin: 20px;
-    margin-top: -40px;
+    margin-top: -50px;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
