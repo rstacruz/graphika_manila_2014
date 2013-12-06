@@ -67,8 +67,12 @@ a
       padding-left: 40px
       padding-right: 40px
 
-// ----------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------------
+ * Temporarily disable other stuff
+ */
+
 @media (max-width: 480px) /* Mobile */
-  .section:not(.title-card)
-    display: none !important
+  .section
+    &.tickets, &.about, &.location, &.faq, &.contact, &.schedule
+      display: none !important
 

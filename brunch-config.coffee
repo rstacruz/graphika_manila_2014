@@ -12,6 +12,7 @@ exports.config =
           'base.sass'
           'menu.sass'
           'title.sass'
+          'speakers.sass'
         ]
     templates:
       joinTo: 'assets/app.js'
