@@ -81,7 +81,7 @@ a {
 .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
   border-top: solid 1px rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 4px 5px -4px rgba(0, 0, 0, 0.1);
-  background: white; }
+  background-color: white; }
   .section.tickets, .section.faq, .section.schedule, .section.about, .section.contact {
     padding-top: 0; }
   @media (min-width: 480px) {
@@ -382,7 +382,7 @@ a {
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-.schedule-cards dt:after {
+.section.schedule .map-link:before, .section.schedule .ext-link:before, .schedule-cards dt:after {
   line-height: 1em;
   font-family: FontAwesome;
   font-weight: normal;
@@ -394,66 +394,112 @@ a {
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale; }
 
+.section.schedule .map-link:before {
+  content: "\f041"; }
+
+.section.schedule .ext-link:before {
+  content: "\f0c1"; }
+
 .schedule-cards dt:after {
   content: "\f105"; }
 
-.schedule .heading h2 em {
-  margin-left: 20px;
-  color: #01bab5; }
-.schedule .column {
-  margin-bottom: 20px; }
-.schedule .map.column {
-  background: #eeeeee; }
-  .schedule .map.column {
-    height: 150px; }
+.section.schedule {
+  background-image: url(../images/bg-doodle.jpg);
+  background-size: 500px auto; }
+  .section.schedule .heading h2 em {
+    margin-left: 20px;
+    color: #01bab5; }
+  .section.schedule .column {
+    margin-bottom: 20px; }
+  .section.schedule .map.column {
+    background: #eeeeee;
+    border: solid 4px white;
+    box-shadow: 0 0 0 3px #eeeeee; }
+    .section.schedule .map.column {
+      height: 150px; }
+    @media (min-width: 480px) {
+      .section.schedule .map.column {
+        height: 300px; } }
   @media (min-width: 480px) {
-    .schedule .map.column {
-      height: 300px; } }
-@media (min-width: 480px) {
-  .schedule .map.column {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    .schedule .map.column:last-child {
-      margin-right: 0; }
-  .schedule .info.column {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    padding-left: 20px; }
-    .schedule .info.column:last-child {
-      margin-right: 0; } }
-.schedule .subsection {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: solid 1px #eeeeee; }
-.schedule .address strong {
+    .section.schedule .map.column {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .section.schedule .map.column:last-child {
+        margin-right: 0; }
+    .section.schedule .info.column {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      padding-left: 20px; }
+      .section.schedule .info.column:last-child {
+        margin-right: 0; } }
+  .section.schedule .subsection {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: solid 1px #eeeeee; }
+  .section.schedule .address strong {
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.3em;
+    line-height: 1.6; }
+  .section.schedule h3 {
+    line-height: 1.1;
+    font-size: 1.3em; }
+  .section.schedule h3 strong {
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.3em;
+    margin-right: 10px; }
+  .section.schedule h3 em {
+    color: #a6d01d; }
+
+/* ----------------------------------------------------------------------------------
+ */
+.section.schedule .actions {
+  margin-top: 20px; }
+.section.schedule .actions a {
+  color: #606060;
+  display: inline-block;
+  padding: 7px 20px;
+  margin-right: 10px;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 2px #606060;
+  font-size: 0.9em;
   font-family: oswald, sans-serif;
   letter-spacing: 1px;
   font-weight: 300;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.3em;
-  line-height: 1.6; }
-.schedule h3 {
-  line-height: 1.1;
-  font-size: 1.3em; }
-.schedule h3 strong {
-  font-family: oswald, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.3em;
-  margin-right: 10px; }
-.schedule h3 em {
-  color: #a6d01d; }
+  -moz-osx-font-smoothing: grayscale; }
+  .section.schedule .actions a:hover {
+    background: #01bab5;
+    box-shadow: none;
+    color: white; }
+  .section.schedule .actions a:active {
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.2);
+    color: white; }
+.section.schedule .map-link:before {
+  margin-right: 4px;
+  font-size: 14px;
+  position: relative;
+  top: -1px; }
+.section.schedule .ext-link:before {
+  margin-right: 4px;
+  font-size: 14px; }
 
 /* ----------------------------------------------------------------------------------
  * Cards:
@@ -583,6 +629,10 @@ a {
 @media (min-width: 480px) {
   .speakers .heading {
     display: none; } }
+@media (max-width: 480px) {
+  .speakers {
+    background-image: url(../images/bg-doodle-dark.jpg);
+    background-size: 300px auto; } }
 
 /* ----------------------------------------------------------------------------------
  * Scroll guides
