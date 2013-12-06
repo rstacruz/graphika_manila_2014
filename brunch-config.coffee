@@ -7,6 +7,12 @@ exports.config =
         'assets/vendor.js': /^vendor/
     stylesheets:
       joinTo: 'assets/app.css'
+      order:
+        before: [
+          'base.sass'
+          'menu.sass'
+          'title.sass'
+        ]
     templates:
       joinTo: 'assets/app.js'
   modules:
