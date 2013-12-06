@@ -1,0 +1,225 @@
+@import common
+@import utils/typography
+@import utils/respond
+@import utils/device
+@import utils/fontawesome
+@import utils/button
+
+// ----------------------------------------------------------------------------
+// Section: Tickets
+
+.section.tickets
+  // background: #eee
+  .heading h2
+    color: $lime
+
+.ticket-list
+  width: 100%
+  margin-bottom: $pad/2
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    display: table
+    margin-bottom: $pad*2
+
+    .ticket
+      display: table-cell
+      vertical-align: middle
+      width: 33.3%
+
+  .ticket
+    +respond(padding, 20px 20px, 70px 20px)
+    text-align: center
+    line-height: 1.2
+    background: $red
+    color: white
+    +antialias
+    +clearfix
+
+    + .ticket
+      background: $darkgrey
+
+  img
+    display: none
+
+  h3
+    +lite-type
+    +respond(font-size, 1.1em, 1.3em)
+    margin-bottom: 0.2em
+
+  p.price
+    +heading-type
+    +respond(font-size, 2.5em, 3.2em, 3.7em)
+
+  p.extra
+    line-height: 1.5
+    font-size: 0.9em
+
+    @media (min-width: 480px) /* Tablet & Desktop */
+      +hr($position: before)
+        width: 40px
+        border-top: solid 1px white
+        opacity: 0.5
+        margin: $pad auto $pad*1.5 auto
+
+  @media (max-width: 480px) /* Mobile */
+    h3
+      margin-bottom: 5px
+
+    h3, p.price
+      text-align: left
+
+    p.price
+      float: left
+
+    p.extra
+      text-align: right
+      font-size: 0.85em
+      float: right
+      margin-left: 10px
+      margin-top: 5px
+
+/* ----------------------------------------------------------------------------------
+ * Pass contents and buy
+ */
+
+.buy-row
+  +clearfix
+
+  .pass-contents, .buy-box
+    margin-bottom: $pad
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    .pass-contents
+      +span-columns(8 of 12)
+
+    .buy-box
+      +span-columns(4 of 12)
+      +omega
+      float: right
+
+.pass-contents
+  h3
+    +heading-type
+    font-size: 1.6em
+
+  strong
+    +lite-type
+    margin-right: 20px
+    color: $lime * 00.8
+    +fa-icon(check, 14px, $margin: 8px, $color: $teal, $top: -1px)
+
+  small
+    font-size: 0.9em
+
+  li
+    margin-top: 10px
+
+  @media (max-width: 480px) /* Mobile */
+    strong, small
+      display: block
+
+
+/* ----------------------------------------------------------------------------------
+ * Buy box
+ */
+
+.buy-box
+  position: relative
+
+  .buy-button
+    +button-base
+    +button-lite($border: 3px)
+    +fa-icon(angle-right, 1em, $position: after, $margin: 8px, $top: -0.15em)
+
+    display: block
+    padding: 15px 40px
+    width: 100%
+    text-align: center
+
+    color: $txt
+    +heading-type
+    font-size: 1.6em
+
+  p.hint
+    margin-top: $pad * 0.4
+    color: #888
+    font-size: 0.9em
+    text-align: center
+    margin-bottom: $pad/2
+
+  .or
+    display: none
+
+  .popup-menu
+    position: absolute
+    width: 100%
+    top: -15px
+    opacity: 0
+    +transform(scale(0.95))
+    +transition(100ms ease)
+
+  &:hover .popup-menu
+    display: block
+    +transform(scale(1.0))
+    opacity: 1
+
+  .touch &
+    .popup-menu
+      margin-top: $pad/2
+      position: static
+      display: block
+      opacity: 1
+      +transform(none)
+  
+    .hint
+      display: none
+
+/* ----------------------------------------------------------------------------------
+ * Popup menu
+ */
+
+.popup-menu
+  // box-shadow: 0 2px 3px rgba(black, 0.2), 0 0 2px rgba(black, 0.1)
+  padding: 5px 0
+  background: $teal
+  border-radius: 3px
+
+  li
+    display: block
+
+  a
+    display: block
+    padding: 15px 20px
+    color: white
+    +fa-icon(angle-right, 1em, $position: after, $top: 0.2em)
+    font-weight: bold
+
+  a:after
+    float: right
+
+  a:hover
+    +transition(none)
+    background: $teal*0.8
+    color: white
+
+  a.bank
+    +fa-icon(money, 14px, $margin: 15px)
+  a.card
+    +fa-icon(credit-card, 14px, $margin: 15px)
+
+/* ----------------------------------------------------------------------------------
+ * Pass reminders
+ */
+
+.pass-reminders
+  color: #999
+  font-size: 0.85em
+
+  li
+    margin-bottom: 5px
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    +span-columns(4)
+    border-top: solid 1px #ccc
+    margin-top: 40px
+    padding-top: 10px
