@@ -1,0 +1,549 @@
+@function new-breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
+
+  @if length($query) == 1 {
+    $query: $default-feature nth($query, 1) $total-columns;
+  }
+
+  @else if length($query) == 2 or length($query) == 4 {
+    $query: append($query, $total-columns);
+  }
+
+  @if not belongs-to($query, $visual-grid-breakpoints) {
+    $visual-grid-breakpoints: append($visual-grid-breakpoints, $query, comma);
+  }
+
+  @return $query;
+}
+// Checks if a number is even
+@function is-even($int) {
+  @if $int%2 == 0   {
+    @return true;
+  }
+
+  @return false;
+}
+
+// Checks if an element belongs to a list
+@function belongs-to($tested-item, $list) {
+  @each $item in $list {
+    @if $item == $tested-item {
+      @return true;
+    }
+  }
+
+  @return false;
+}
+
+// Contains display value
+@function contains-display-value($query) {
+  @if belongs-to(table, $query) or belongs-to(block, $query) or belongs-to(inline-block, $query) or belongs-to(inline, $query) {
+    @return true;
+  }
+
+  @return false;
+}
+
+// Parses the first argument of span-columns()
+@function container-span($span: $span) {
+  @if length($span) == 3 {
+    $container-columns: nth($span, 3);
+    @return $container-columns;
+  }
+
+  @else if length($span) == 2 {
+    $container-columns: nth($span, 2);
+    @return $container-columns;
+  }
+
+  @else {
+    @return $grid-columns;
+  }
+}
+
+@function container-shift($shift: $shift) {
+  $parent-columns: $grid-columns !default;
+
+  @if length($shift) == 3 {
+    $container-columns: nth($shift, 3);
+    @return $container-columns;
+  }
+
+  @else if length($shift) == 2 {
+    $container-columns: nth($shift, 2);
+    @return $container-columns;
+  }
+
+  @else {
+    @return $parent-columns;
+  }
+}
+
+// Generates a striped background
+@function gradient-stops($grid-columns, $color: $visual-grid-color) {
+  $transparent: rgba(0,0,0,0);
+
+  $column-width: flex-grid(1, $grid-columns);
+  $gutter-width: flex-gutter($grid-columns);
+  $column-offset: $column-width;
+
+  $values: ($transparent 0, $color 0);
+
+  @for $i from 1 to $grid-columns*2 {
+    @if is-even($i) {
+      $values: append($values, $transparent $column-offset, comma);
+      $values: append($values, $color $column-offset, comma);
+      $column-offset: $column-offset + $column-width;
+    }
+
+    @else {
+      $values: append($values, $color $column-offset, comma);
+      $values: append($values, $transparent $column-offset, comma);
+      $column-offset: $column-offset + $gutter-width;
+    }
+  }
+
+  @return $values;
+}
+
+// Layout direction
+@function get-direction($layout, $default) {
+  $direction: nil;
+  
+  @if $layout == LTR or $layout == RTL {
+    $direction: direction-from-layout($layout);
+  } @else {
+    $direction: direction-from-layout($default);
+  }
+
+  @return $direction;
+}
+
+@function direction-from-layout($layout) {
+  $direction: nil;
+
+  @if $layout == LTR {
+    $direction: right;
+  } @else {
+    $direction: left;
+  }
+
+  @return $direction;
+}
+
+@function get-opposite-direction($direction) {
+  $opposite-direction: left;
+
+  @if $direction == left {
+    $opposite-direction: right;
+  }
+
+  @return $opposite-direction;
+}
+$column: golden-ratio(1em, 3) !default; // Column width
+$gutter: golden-ratio(1em, 1) !default; // Gutter between each two columns
+$grid-columns: 12 !default; // Total number of columns in the grid
+$max-width: em(1088) !default; // Max-width of the outer container
+$border-box-sizing: true !default; // Makes all elements have a border-box layout
+$default-feature: min-width; // Default @media feature for the breakpoint() mixin
+$default-layout-direction: LTR !default;
+$visual-grid: false !default; // Display the base grid
+$visual-grid-color: #EEE !default;
+$visual-grid-index: back !default; // Show grid behind content (back) or overlay it over the content (front)
+$visual-grid-opacity: 0.4 !default;
+$visual-grid-breakpoints: () !default;
+@mixin fill-parent() {
+  width: 100%;
+
+  @if $border-box-sizing == false {
+    @include box-sizing(border-box);
+  }
+}
+@if $border-box-sizing == true {
+  * {
+    @include box-sizing(border-box);
+  }
+}
+@mixin media($query:$feature $value $columns, $total-columns: $grid-columns) {
+
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 2 {
+    @media screen and (nth($query, 1): nth($query, 2)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 3 {
+    @media screen and (nth($query, 1): nth($query, 2)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: nth($query, 3);
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 4 {
+    @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 5 {
+    @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: nth($query, 5);
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else {
+    @warn "Wrong number of arguments for breakpoint(). Read the documentation for more details.";
+  }
+}
+// Remove last element gutter
+@mixin omega($query: block, $direction: default) {
+  $table: if(belongs-to(table, $query), true, false);
+  $auto: if(belongs-to(auto, $query), true, false);
+
+  @if $direction != default {
+    @warn "The omega mixin will no longer take a $direction argument. To change the layout direction, use row($direction) or set $default-layout-direction instead."
+  } @else {
+    $direction: get-direction($layout-direction, $default-layout-direction);
+  }
+
+  @if length($query) == 1 {
+    @if $auto {
+      &:last-child {
+        margin-#{$direction}: 0;
+      }
+    }
+
+    @else if contains-display-value($query) {
+      @if $table {
+        padding-#{$direction}: 0;
+      }
+
+      @else {
+        margin-#{$direction}: 0;
+      }
+    }
+
+    @else {
+      @include nth-child($query, $direction);
+    }
+  }
+
+  @else if length($query) == 2 {
+    @if $table {
+      @if $auto {
+        &:last-child {
+          padding-#{$direction}: 0;
+        }
+      }
+
+      @else {
+        &:nth-child(#{nth($query, 1)}) {
+          padding-#{$direction}: 0;
+        }
+      }
+    }
+
+    @else {
+      @if $auto {
+        &:last-child {
+          margin-#{$direction}: 0;
+        }
+      }
+
+      @else {
+        @include nth-child(nth($query, 1), $direction);
+      }
+    }
+  }
+
+  @else {
+    @warn "Too many arguments passed to the omega() mixin."
+  }
+}
+
+@mixin nth-child($query, $direction) {
+  $opposite-direction: get-opposite-direction($direction);
+
+  &:nth-child(#{$query}) {
+    margin-#{$direction}: 0;
+  }
+
+  @if type-of($query) == number {
+    &:nth-child(#{$query}+1) {
+      clear: $opposite-direction;
+    }
+  }
+}
+@mixin outer-container {
+  @include clearfix;
+  max-width: $max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+@mixin pad($padding: flex-gutter()) {
+  $padding-list: null;
+  @each $value in $padding {
+    $value: if($value == 'default', flex-gutter(), $value);
+    $padding-list: join($padding-list, $value);
+  }
+  padding: $padding-list;
+}
+$parent-columns: $grid-columns !default;
+$fg-column: $column;
+$fg-gutter: $gutter;
+$fg-max-columns: $grid-columns;
+$container-display-table: false !default;
+$layout-direction: nil !default;
+
+@function flex-grid($columns, $container-columns: $fg-max-columns) {
+  $width: $columns * $fg-column + ($columns - 1) * $fg-gutter;
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($width / $container-width);
+}
+
+@function flex-gutter($container-columns: $fg-max-columns, $gutter: $fg-gutter) {
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($gutter / $container-width);
+}
+
+@function grid-width($n) {
+  @return $n * $gw-column + ($n - 1) * $gw-gutter;
+}
+
+@function get-parent-columns($columns) {
+  @if $columns != $grid-columns {
+    $parent-columns: $columns;
+  } @else {
+    $parent-columns: $grid-columns;
+  }
+
+  @return $parent-columns;
+}
+
+@function is-display-table($container-is-display-table, $display) {
+  $display-table: false;
+
+  @if $container-is-display-table == true {
+    $display-table: true;
+  } @else if $display == table {
+    $display-table: true;
+  }
+
+  @return $display-table;
+}
+
+@function get-padding-for-table-layout($columns, $total-columns) {
+  $total-padding: flex-gutter($total-columns) * ($columns - 1);
+  $padding: $total-padding / $columns;
+
+  @return $padding;
+}
+@mixin reset-display {
+  $container-display-table: false;
+}
+
+@mixin reset-layout-direction {
+  $layout-direction: $default-layout-direction;
+}
+
+@mixin reset-all {
+  @include reset-display;
+  @include reset-layout-direction;
+}
+@mixin row($display: block, $direction: $default-layout-direction) {
+  @include clearfix;
+  $layout-direction: $direction;
+
+  @if $display == table {
+    display: table;
+    @include fill-parent;
+    table-layout: fixed;
+    $container-display-table: true;
+  }
+
+  @else {
+    display: block;
+    $container-display-table: false;
+  }
+}
+
+@mixin shift($n-columns: 1) {
+  @include shift-in-context($n-columns);
+}
+
+@mixin shift-in-context($shift: $columns of $container-columns) {
+  $n-columns: nth($shift, 1);
+  $parent-columns: container-shift($shift);
+
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+
+  margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+
+  // Reset nesting context
+  $parent-columns: $grid-columns;
+}
+@mixin span-columns($span: $columns of $container-columns, $display: block) {
+  $columns: nth($span, 1);
+  $container-columns: container-span($span);
+
+  // Set nesting context (used by shift())
+  $parent-columns: get-parent-columns($container-columns);
+
+  $direction: get-direction($layout-direction, $default-layout-direction);
+  $opposite-direction: get-opposite-direction($direction);
+
+  $display-table: is-display-table($container-display-table, $display);
+
+  @if $display-table  {
+    $padding: get-padding-for-table-layout($columns, $container-columns);
+    display: table-cell;
+    padding-#{$direction}: $padding;
+    width: flex-grid($columns, $container-columns) + $padding;
+  } @else {
+    float: #{$opposite-direction};
+
+    @if $display != no-display {
+      display: block;
+    }
+
+    @if $display == collapse {
+      @warn "The 'collapse' argument will be deprecated. Use 'block-collapse' instead."
+    }
+
+    @if $display == collapse or $display == block-collapse {
+      width: flex-grid($columns, $container-columns) + flex-gutter($container-columns);
+
+      &:last-child {
+        width: flex-grid($columns, $container-columns);
+      }
+
+    } @else {
+      margin-#{$direction}: flex-gutter($container-columns);
+      width: flex-grid($columns, $container-columns);
+
+      &:last-child {
+        margin-#{$direction}: 0;
+      }
+    }
+  }
+}
+@mixin breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
+  @warn "The breakpoint() mixin was renamed to media() in Neat 1.0. Please update your project with the new syntax before the next version bump.";
+
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 2 {
+    @media screen and (nth($query, 1): nth($query, 2)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 3 {
+    @media screen and (nth($query, 1): nth($query, 2)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: nth($query, 3);
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 4 {
+    @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: $total-columns;
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else if length($query) == 5 {
+    @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
+      $default-grid-columns: $grid-columns;
+      $grid-columns: nth($query, 5);
+      @content;
+      $grid-columns: $default-grid-columns;
+    }
+  }
+
+  @else {
+    @warn "Wrong number of arguments for breakpoint(). Read the documentation for more details.";
+  }
+}
+
+@mixin nth-omega($nth, $display: block, $direction: default) {
+  @warn "The nth-omega() mixin is deprecated. Please use omega() instead.";
+  @include omega($nth $display, $direction);
+}
+@mixin grid-column-gradient($values...) {
+  background-image: deprecated-webkit-gradient(linear, left top, left bottom, $values);
+  background-image:  -webkit-linear-gradient(left, $values);
+  background-image:     -moz-linear-gradient(left, $values);
+  background-image:      -ms-linear-gradient(left, $values);
+  background-image:       -o-linear-gradient(left, $values);
+  background-image: unquote("linear-gradient(left, #{$values})");
+}
+
+@if $visual-grid == true or $visual-grid == yes {
+  body:before {
+    content: '';
+    display: inline-block;
+    @include grid-column-gradient(gradient-stops($grid-columns));
+    height: 100%;
+    left: 0;
+    margin: 0 auto;
+    max-width: $max-width;
+    opacity: $visual-grid-opacity;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    pointer-events: none;
+
+    @if $visual-grid-index == back {
+      z-index: -1;
+    }
+
+    @else if $visual-grid-index == front {
+      z-index: 9999;
+    }
+
+    @each $breakpoint in $visual-grid-breakpoints {
+      @if $breakpoint != nil {
+        @include media($breakpoint) {
+          @include grid-column-gradient(gradient-stops($grid-columns));
+        }
+      }
+    }
+  }
+}

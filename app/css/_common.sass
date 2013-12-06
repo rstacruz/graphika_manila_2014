@@ -1,0 +1,24 @@
+$container-columns: 12
+
+@import ../../vendor/css/bourbon
+@import ../../vendor/css/neat
+
+$red: #b61521
+$teal: #01bab5
+$yellow: #cdd94a
+$beige: #fcf4d6
+$lime: #a6d01d
+$darkgrey: #212121
+
+$txt: #30303a
+$background: #fff
+
+$pad: 20px
+
+= hr($position: after)
+  &:#{$position}
+    content: ''
+    display: block
+    width: 100%
+    height: 0
+    @content

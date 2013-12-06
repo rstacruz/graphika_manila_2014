@@ -1,0 +1,20 @@
+// ### respond($prop, $mobile, $tablet, $desktop)
+//
+// Example:
+//     +respond(font-size, 1em, 1.2em, 1.5em)
+
+= respond($prop, $mobile, $tablet: auto, $desktop: auto, $bigdesktop: auto)
+  &
+    #{$prop}: $mobile
+
+  @if $tablet != auto
+    @media (min-width: 480px) /* Tablet */
+      #{$prop}: $tablet
+
+  @if $desktop != auto
+    @media (min-width: 768px) /* Desktop */
+      #{$prop}: $desktop
+
+  @if $bigdesktop != auto
+    @media (min-width: 1100px) /* Big desktop */
+      #{$prop}: $bigdesktop

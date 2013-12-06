@@ -1,0 +1,71 @@
+@import common
+@import utils/reset
+@import utils/typography
+@import utils/fontawesome
+
+// ----------------------------------------------------------------------------
+// Base
+
++fa-font
+
+input:focus, select:focus
+  outline: 0
+
+html
+  color: $txt
+  background: $background
+  font-size: 14px
+  overflow-y: scroll
+
+  @media (max-width: 480px) /* Mobile */
+    font-size: 12px
+
+html, body
+  height: 100%
+
+body
+  line-height: 1.5
+
+body, td, input, textarea, select, button
+  +body-type
+
+a
+  color: $red
+  text-decoration: none
+  +transition(color 40ms linear)
+
+// ----------------------------------------------------------------------------
+// Sections
+
+.section
+  &.tickets, &.faq, &.schedule, &.about, &.contact
+    padding-top: $pad*7
+    padding-bottom: $pad*7
+    border-top: solid 1px rgba(black, 0.15)
+    box-shadow: inset 0 4px 5px -4px rgba(black, 0.1)
+    background: white
+
+  &
+    position: relative
+    z-index: 10
+
+  >.content
+    +box-sizing(border-box)
+    max-width: 1000px
+    margin: 0 auto
+    position: relative
+    +clearfix
+
+    &
+      padding-left: 10px
+      padding-right: 10px
+
+    @media (min-width: 480px) /* Tablet and desktop */
+      padding-left: 40px
+      padding-right: 40px
+
+// ----------------------------------------------------------------------------
+@media (max-width: 480px) /* Mobile */
+  .section:not(.title-card)
+    display: none !important
+

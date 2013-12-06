@@ -1,0 +1,205 @@
+@import common
+@import utils/typography
+@import utils/respond
+
+/* ----------------------------------------------------------------------------------
+ * Main title (.title-card.section):
+ * The top section.
+ */
+
+.title-card
+  background-color: $red
+  color: $beige
+  // text-shadow: 1px 1px $red, 2px 2px $red, 3px 3px $red, 4px 4px $red, 5px 5px $red, 6px 6px $red, -1px -1px $red, 1px -1px $red, -1px 1px $red
+  text-shadow: 0 0 5px $red
+  box-shadow: 0 0 8px rgba(black, 0.4)
+  border-bottom: solid 2px $darkgrey
+
+  .bg
+    overflow: hidden
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+  // Use a CSS background for mobile, and hide the video
+  @media (max-width: 480px) /* Mobile */
+    .bg
+      display: none
+    background-image: url(../images/bg-title-m.jpg)
+    background-size: 100% auto
+    background-position: center top
+    background-repeat: no-repeat
+
+  .content
+    position: relative
+    z-index: 5
+    padding-top: $pad*2
+    padding-bottom: $pad*2
+
+    @media (max-width: 480px) /* Mobile */
+      padding-bottom: $pad
+
+/* ----------------------------------------------------------------------------------
+ * Title logo
+ * The logo image thing.
+ */
+
+.title-card .logo
+  $r: 800/275
+
+  +respond(width, 240px, 300px, 400px)
+  +respond(height, 240px/$r, 300px/$r, 400px/$r)
+
+  .styled, .normal
+    display: none
+
+  @media (max-width: 480px) /* Mobile */
+    margin: 50px auto 80px auto
+    .styled
+      display: block
+
+  @media (min-width: 480px) /* Tablet */
+    margin-left: auto
+    margin-bottom: 200px
+    .normal
+      display: block
+
+  @media (min-width: 768px) /* Desktop */
+    margin-bottom: 400px
+
+  img
+    width: 100%
+
+
+/* ----------------------------------------------------------------------------------
+ * Share links:
+ * Facebook and twitter buttons.
+ */
+
+.share-links
+  > *
+    display: inline-block
+
+  &
+    text-shadow: none
+
+  // White background on desktop
+  @media (min-width: 480px) /* Tablet & Desktop */
+    background: #fff
+    padding: 10px
+    box-shadow: 0 1px 2px rgba(black, 0.2)
+    height: 40px
+    max-width: 280px
+
+  // Positioning
+  @media (min-width: 480px) /* Tablet & Desktop */
+    position: absolute
+    top: 40px
+    left: 40px
+
+  @media (max-width: 480px) /* Mobile */
+    margin: $pad auto
+    text-align: center
+
+/* ----------------------------------------------------------------------------------
+ * Details:
+ * "Conference on creativity" etc
+ */
+
+$line-color: saturate(mix($beige, $red, 50%), 80%)
+
+.title-card .details
+  clear: both
+  +clearfix
+
+  +respond(margin-top, $pad*2, auto)
+
+.title-card .detail
+  &
+    border-top: solid 2px $line-color
+    margin-right: $pad
+    padding-top: $pad/2
+    line-height: 1.4
+    padding-bottom: $pad
+
+  @media (min-width: 480px) /* Tablet & Desktop */
+    padding-bottom: $pad*2
+
+  em, strong
+    display: block
+
+  // "Saturday"
+  strong, h2
+    +heading-type
+    display: block
+
+    +respond(font-size, 1.2em, 1.3em, 1.6em)
+
+  em
+    +subheading-type
+    color: $lime
+    font-size: 1.1em
+
+    @media (max-width: 480px) /* Mobile */
+      color: $line-color
+
+/* ----------------------------------------------------------------------------------
+ * Arrangements
+ */
+
+.title-card .detail
+  &.date, &.venue
+    float: left
+
+    & /* Mobile */
+      +span-columns(4 of 8)
+
+    @media (min-width: 480px) /* Tablet */
+      +span-columns(4 of 12)
+
+    @media (min-width: 768px) /* Desktop */
+      +span-columns(3 of 12)
+
+  &.date
+    clear: both
+
+  &.summary
+    +respond(margin-bottom, $pad*0.5, $pad*2, $pad*3)
+
+    @media (max-width: 480px) /* Mobile */
+      margin-right: 0
+
+    @media (min-width: 480px) /* Tablet */
+      +span-columns(8 of 12)
+
+    @media (min-width: 768px) /* Desktop */
+      +span-columns(6 of 12)
+
+
+/* ----------------------------------------------------------------------------------
+ * Summary
+ * "Conference on creativity"
+ */
+
+.title-card .detail.summary
+  &
+    line-height: 1.3
+
+  // -----------------
+  // "February 1, 2014"
+  h2
+    +subheading-type
+    +respond(font-size, 1em, 1.2em, 1.5em)
+
+  // --------------------------
+  // "Conference on creativity"
+  em
+    +heading-type
+    line-height: 1.1
+    margin-top: 0.1em
+    color: $lime
+
+    +respond(font-size, 2em, 3em, 4.1em)
+    +respond(line-height, 1.3, 1.2, 1.1)
