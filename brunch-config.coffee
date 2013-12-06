@@ -5,6 +5,10 @@ exports.config =
       joinTo:
         'assets/app.js':    /^app/
         'assets/vendor.js': /^vendor/
+      order:
+        before: [
+          /lib/
+        ]
     stylesheets:
       joinTo: 'assets/app.css'
       order:

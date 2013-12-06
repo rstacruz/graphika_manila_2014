@@ -61,6 +61,11 @@
     box-shadow: 0 0 6px rgba(black, 0.4)
     
 .speakers.magic
+  .speaker
+    -webkit-pointer-events: none
+    -moz-pointer-events: none
+    pointer-events: none
+
   .info.name
     display: none
 
@@ -72,10 +77,12 @@
   @media (max-width: 480px) /* Mobile */
     display: none
 
+  // Content goes into
   .content
     padding-top: $pad*2
     position: relative
     z-index: 20
+    height: 100%
 
   &
     background: $darkgrey
@@ -97,7 +104,7 @@
 
   .item:after
     +overlay(10)
-    +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba(black, 0.5)))
+    +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba($teal*0.1, 0.7)))
 
   // .item:before
   //   +overlay(10)
@@ -151,23 +158,47 @@
   @media (min-width: 480px) /* Tablet & Desktop */
     min-height: 750px
 
-
 .speaker-bio
   background: white
   max-width: 300px
   position: relative
 
+/* ----------------------------------------------------------------------------------
+ * Whoisit heading
+ */
+
 .whoisit
   color: white
   text-shadow: 0 0 14px rgba(black, 0.3)
-  margin-top: 100px
+  +transform(translate3d(0, 0, 0))
 
   h3
-    font-size: 4em
+    font-size: 5em
     +heading-type
 
   p
+    font-size: 1.1em
     +subheading-type
+    color: $beige
+    display: inline-block
+    margin-right: 40px
+    margin-top: 20px
+
+  p:before
+    content: ''
+    display: block
+    width: 20px
+    height: 1px
+    background: teal
+    margin-bottom: 10px
+
+  p:first-of-type
+    color: $yellow
+
+.whoisit
+  position: absolute
+  bottom: 60px
+  left: 40px
 
 /* ----------------------------------------------------------------------------------
  * Speaker avatar
