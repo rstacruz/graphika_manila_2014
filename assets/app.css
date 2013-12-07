@@ -456,17 +456,35 @@ a {
 
 .navigation {
   position: fixed;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 100%;
-  z-index: 20; }
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transition: 200ms ease;
+  -moz-transition: 200ms ease;
+  transition: 200ms ease; }
+  .navigation > .content {
+    padding: 20px 0; }
   .navigation .navigation-bar {
-    margin-top: 40px;
-    margin-left: -80px; }
+    margin-top: 0;
+    margin-left: -40px; }
     @media (max-width: 1100px) {
       .navigation .navigation-bar {
         display: none; } }
+  .navigation {
+    background-color: rgba(0, 0, 0, 0); }
+    .navigation .links {
+      opacity: 0; }
+  .navigation:hover {
+    background-color: rgba(0, 0, 0, 0.3); }
+    .navigation:hover .links {
+      opacity: 1; }
 
+.navigation-bar:after {
+  content: "";
+  display: table;
+  clear: both; }
 .navigation-bar .logo {
   width: 40px;
   height: 40px;
@@ -509,20 +527,6 @@ a {
   -webkit-transition: 300ms ease;
   -moz-transition: 300ms ease;
   transition: 300ms ease; }
-.navigation .links {
-  opacity: 0;
-  -webkit-transform: translate3d(-10px, 0, 0);
-  -moz-transform: translate3d(-10px, 0, 0);
-  -ms-transform: translate3d(-10px, 0, 0);
-  -o-transform: translate3d(-10px, 0, 0);
-  transform: translate3d(-10px, 0, 0); }
-.navigation.show-links .links {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
 
 .section.schedule .map-link:before, .section.schedule .ext-link:before, .schedule-cards dt:after {
   line-height: 1em;
@@ -1186,7 +1190,15 @@ a {
   background-image: url(../images/bg-doodle.jpg);
   background-size: 500px auto; }
   .section.tickets .heading h2 {
-    color: #a6d01d; }
+    color: #84a617; }
+    .section.tickets .heading h2 {
+      font-size: auto; }
+    @media (min-width: 480px) {
+      .section.tickets .heading h2 {
+        font-size: 1.3em; } }
+    @media (min-width: 768px) {
+      .section.tickets .heading h2 {
+        font-size: 1.5em; } }
 
 .ticket-list {
   width: 100%;
@@ -1200,6 +1212,7 @@ a {
         vertical-align: middle;
         width: 33.3%; } }
   .ticket-list .ticket {
+    position: relative;
     text-align: center;
     line-height: 1.2;
     background-color: red;
@@ -1231,6 +1244,23 @@ a {
       @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
         .ticket-list .ticket + .ticket {
           background-image: url(../images/bg-ticket-grey@2x.jpg); } }
+  @media (min-width: 768px) {
+    .ticket-list .ticket:before {
+      content: "";
+      display: block;
+      position: absolute; }
+    .ticket-list .ticket:first-child:before {
+      background: url(../images/o-ticket-left.png);
+      bottom: -38px;
+      right: -10px;
+      width: 659px;
+      height: 235px; }
+    .ticket-list .ticket:last-child:before {
+      background: url(../images/o-ticket-right.png);
+      bottom: -11px;
+      right: -200px;
+      width: 691px;
+      height: 272px; } }
   .ticket-list img {
     display: none; }
   .ticket-list h3 {
@@ -1263,19 +1293,15 @@ a {
     @media (min-width: 768px) {
       .ticket-list p.price {
         font-size: 3.7em; } }
+  @media (min-width: 480px) {
+    .ticket-list div.info {
+      border: solid 2px white;
+      padding: 15px;
+      max-width: 200px;
+      margin: 0 auto 20px auto; } }
   .ticket-list p.extra {
     line-height: 1.5;
     font-size: 0.9em; }
-    @media (min-width: 480px) {
-      .ticket-list p.extra:before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 0;
-        width: 40px;
-        border-top: solid 1px white;
-        opacity: 0.5;
-        margin: 20px auto 30px auto; } }
   @media (max-width: 480px) {
     .ticket-list h3 {
       margin-bottom: 5px; }
@@ -1299,7 +1325,7 @@ a {
   clear: both; }
 .buy-row .pass-contents, .buy-row .buy-box {
   margin-bottom: 20px; }
-@media (min-width: 480px) {
+@media (min-width: 768px) {
   .buy-row .pass-contents {
     float: left;
     display: block;
@@ -1327,13 +1353,14 @@ a {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6em; }
 .pass-contents strong {
-  font-family: oswald, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-family: museo-slab, sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.1em;
   margin-right: 20px;
   color: #84a617; }
   .pass-contents strong:before {
@@ -1358,13 +1385,12 @@ a {
   .buy-box .buy-button {
     display: inline-block;
     cursor: pointer;
-    color: #606060;
-    box-shadow: inset 0 0 0 4px #606060;
+    color: #30303a;
+    box-shadow: inset 0 0 0 6px #30303a;
     display: block;
     padding: 15px 40px;
     width: 100%;
     text-align: center;
-    color: #30303a;
     font-family: oswald, sans-serif;
     letter-spacing: 1px;
     font-weight: 300;
@@ -1434,7 +1460,7 @@ a {
  * Popup menu
  */
 .popup-menu {
-  padding: 5px 0;
+  padding: 15px 0;
   background: #01bab5;
   border-radius: 3px; }
   .popup-menu li {
@@ -1456,6 +1482,8 @@ a {
     transition: none;
     background: #009490;
     color: white; }
+  .popup-menu a:active {
+    background: #00827e; }
   .popup-menu a.bank:before {
     margin-right: 15px;
     font-size: 14px; }
@@ -1476,10 +1504,18 @@ a {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 31.76157%;
+      width: 48.82117%;
       border-top: solid 1px #cccccc;
       margin-top: 40px;
       padding-top: 10px; }
+      .pass-reminders:last-child {
+        margin-right: 0; } }
+  @media (min-width: 768px) {
+    .pass-reminders {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
       .pass-reminders:last-child {
         margin-right: 0; } }
 
@@ -1522,7 +1558,7 @@ a {
  * The logo image thing.
  */
 .title-card .logo {
-  width: 290px; }
+  width: 270px; }
 @media (min-width: 480px) {
   .title-card .logo {
     width: 300px; } }
@@ -1530,7 +1566,7 @@ a {
   .title-card .logo {
     width: 400px; } }
 .title-card .logo {
-  height: 99.6875px; }
+  height: 92.8125px; }
 @media (min-width: 480px) {
   .title-card .logo {
     height: 103.125px; } }

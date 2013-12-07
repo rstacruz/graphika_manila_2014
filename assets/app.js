@@ -136,6 +136,11 @@ $(function () {
   });
 });
 
+$(function () {
+  $('.fillsize').fillsize('>img');
+  $('.backdrop').fillsize('>video');
+});
+
 // ----------------------------------------------------------------------------
 // Toggleable
 
@@ -165,9 +170,10 @@ if (window.history && window.history.replaceState) {
 
 // ----------------------------------------------------------------------------
 
-$.monitorHover({ y: 70 });
+$.monitorHover({ y: 90 });
 $(document).on('over:on', function () {
-  $('.navigation').toggleClass('show-links', true);
+  if ($(window).scrollTop() > 100)
+    $('.navigation').toggleClass('show-links', true);
 });
 $(document).on('over:off', function () {
   $('.navigation').toggleClass('show-links', false);
@@ -207,10 +213,6 @@ $(function () {
 
 ;// ----------------------------------------------------------------------------
 // Speaker scrolling animation
-
-$(function () {
-  $('.fillsize').fillsize('>img');
-});
 
 $(function () {
   var $speakers = $(".speaker.section");
