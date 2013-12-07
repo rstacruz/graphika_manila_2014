@@ -466,19 +466,19 @@ a {
   transition: 200ms ease; }
   .navigation > .content {
     padding: 20px 0; }
+  @media (max-width: 1100px) {
+    .navigation {
+      display: none; } }
   .navigation .navigation-bar {
     margin-top: 0;
     margin-left: -40px; }
-    @media (max-width: 1100px) {
-      .navigation .navigation-bar {
-        display: none; } }
   .navigation {
     background-color: rgba(0, 0, 0, 0); }
     .navigation .links {
       opacity: 0; }
-  .navigation:hover {
-    background-color: rgba(0, 0, 0, 0.3); }
-    .navigation:hover .links {
+  .navigation.show-links {
+    background-color: rgba(0, 0, 0, 0.1); }
+    .navigation.show-links .links {
       opacity: 1; }
 
 .navigation-bar:after {
@@ -486,47 +486,100 @@ a {
   display: table;
   clear: both; }
 .navigation-bar .logo {
-  width: 40px;
+  width: 48px;
   height: 40px;
   line-height: 40px;
   text-align: center;
-  margin-right: 40px;
+  margin-right: 32px;
   color: #b61521;
   background: #1d1d1d;
   display: block;
-  float: left; }
-  .navigation-bar .logo:before {
-    content: "GM";
-    font-weight: bold; }
-.navigation-bar .links {
+  float: left;
+  overflow: hidden; }
+.navigation-bar .logo span {
   display: block;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  width: 48px;
+  height: 160px;
+  background: url(../images/logos.png);
+  background-size: 100% auto;
+  -webkit-transform: translate3d(0, -120px, 0);
+  -moz-transform: translate3d(0, -120px, 0);
+  -ms-transform: translate3d(0, -120px, 0);
+  -o-transform: translate3d(0, -120px, 0);
+  transform: translate3d(0, -120px, 0);
+  -webkit-transition: 200ms ease;
+  -moz-transition: 200ms ease;
+  transition: 200ms ease; }
+  .section-top .navigation-bar .logo span {
+    -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
+    -ms-transform: translate3d(0, 0px, 0);
+    -o-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0); }
+  .section-speakers .navigation-bar .logo span {
+    -webkit-transform: translate3d(0, -40px, 0);
+    -moz-transform: translate3d(0, -40px, 0);
+    -ms-transform: translate3d(0, -40px, 0);
+    -o-transform: translate3d(0, -40px, 0);
+    transform: translate3d(0, -40px, 0); }
+  .section-schedule .navigation-bar .logo span, .section-tickets .navigation-bar .logo span, .section-faq .navigation-bar .logo span {
+    -webkit-transform: translate3d(0, -80px, 0);
+    -moz-transform: translate3d(0, -80px, 0);
+    -ms-transform: translate3d(0, -80px, 0);
+    -o-transform: translate3d(0, -80px, 0);
+    transform: translate3d(0, -80px, 0); }
+
+.navigation-bar .links {
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  transition: 300ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
   height: 40px;
   line-height: 40px;
-  overflow: hidden;
   background: white;
   float: left;
   padding: 0 10px; }
-  .navigation-bar .links li {
-    display: inline; }
-  .navigation-bar .links a {
-    display: block;
-    float: left;
-    padding: 0 10px;
-    font-size: 0.9em;
-    font-family: oswald, sans-serif;
-    letter-spacing: 1px;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #30303a; }
-
-.navigation .links {
-  -webkit-transition: 300ms ease;
-  -moz-transition: 300ms ease;
-  transition: 300ms ease; }
+  .navigation-bar .links:after {
+    content: "";
+    display: table;
+    clear: both; }
+.navigation-bar .links:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -40px;
+  top: 0;
+  border: solid 20px transparent;
+  border-right-color: white; }
+.navigation-bar .links li {
+  display: inline; }
+.navigation-bar .links a {
+  display: block;
+  float: left;
+  padding: 0 10px;
+  font-size: 0.9em;
+  font-family: oswald, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #30303a; }
+.navigation-bar .links a:hover {
+  background: #f6fae8;
+  color: #01bab5; }
+.navigation-bar .links a.active {
+  background: #01bab5;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
 
 .section.schedule .map-link:before, .section.schedule .ext-link:before, .schedule-cards dt:after {
   line-height: 1em;
@@ -1188,7 +1241,8 @@ a {
 
 .section.tickets {
   background-image: url(../images/bg-doodle.jpg);
-  background-size: 500px auto; }
+  background-size: 500px auto;
+  overflow: hidden; }
   .section.tickets .heading h2 {
     color: #84a617; }
     .section.tickets .heading h2 {
@@ -1600,6 +1654,14 @@ a {
   display: inline-block; }
 .share-links {
   text-shadow: none; }
+.share-links:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -40px;
+  top: 0;
+  border: solid 20px transparent;
+  border-right-color: white; }
 @media (min-width: 480px) {
   .share-links {
     background: white;
