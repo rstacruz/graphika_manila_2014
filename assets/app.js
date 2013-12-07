@@ -111,7 +111,10 @@
 
 
 
-;// ----------------------------------------------------------------------------
+;if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
+  $('html').addClass('mobile');
+
+// ----------------------------------------------------------------------------
 // Auto-height thing
 
 $(function () {
@@ -126,8 +129,8 @@ $(function () {
     },
 
     off: function () {
-      $('.speakers .item').css({ height: null });
-      $('.speaker.section').css({ height: null });
+      $('.speakers .item').css({ height: '' });
+      $('.speaker.section').css({ height: '' });
       $(window).off('resize.fill');
     }
   });
@@ -171,12 +174,12 @@ $(document).on('over:off', function () {
 });
 
 ;// ----------------------------------------------------------------------------
-// Restructuring the speakers
+// Restructuring the speakers ('.magic')
 
 $(function () {
   var $speakers, $contents, $backdrops, len;
 
-  Harvey.attach('(min-width: 1024px)', {
+  Harvey.attach('(min-width: 480px)', {
     setup: function () {
       $speakers = $(".speaker");
       $contents = $(".speaker .content:first-child");
@@ -206,9 +209,11 @@ $(function () {
 // Speaker scrolling animation
 
 $(function () {
-  var $speakers = $(".speaker.section");
-
   $('.fillsize').fillsize('>img');
+});
+
+$(function () {
+  var $speakers = $(".speaker.section");
 
   $('.section[id], .m-section').scrollagent({
     xform: function (y, range, height) { return y + height * 0.8; }

@@ -1140,6 +1140,21 @@ a {
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2));
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2)); }
 
+/* ----------------------------------------------------------------------------------
+ * Disable fancy scrolling on iPad
+ */
+@media (min-width: 480px) {
+  .mobile .speaker {
+    display: none; }
+  .mobile .speakers .items {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important; }
+  .mobile .speakers > .bg {
+    position: static !important; } }
+
 .pass-contents strong:before, .buy-box .buy-button:after, .popup-menu a:after, .popup-menu a.bank:before, .popup-menu a.card:before {
   line-height: 1em;
   font-family: FontAwesome;
