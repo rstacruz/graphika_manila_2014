@@ -1,8 +1,9 @@
-# Brunch app
+# Graphika Manila 2014
 
 This is HTML5 application, built with [Brunch](http://brunch.io).
 
 ## Getting started
+
 * Install (if you don't have them):
     * [Node.js](http://nodejs.org): `brew install node` on OS X
     * [Brunch](http://brunch.io): `npm install -g brunch`
@@ -14,4 +15,15 @@ This is HTML5 application, built with [Brunch](http://brunch.io).
 * Learn:
     * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
     * Place static files you want to be copied from `app/assets/` to `public/`.
-    * [Brunch site](http://brunch.io), [Chaplin site](http://chaplinjs.org)
+    * [Brunch site](http://brunch.io)
+
+
+-----
+
+## Where is everything
+
+ * `app/assets/` - images, files, etc
+ * `app/assets/index.html` - main site
+ * `app/css/` - Sass + Bourbon stylesheets
+ * `app/js/` - JavaScript files
+ * `public/` - generated files
