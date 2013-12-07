@@ -17,4 +17,7 @@ unretina: \
 app/assets/images/%.jpg: app/assets/images/%@2x.jpg
 	convert $< -resize 50% -strip $@
 
-.PHONY: unretina dropbox all
+cachebust:
+	perl -p -i -e "s/\?v=[0-9]+/?v=`echo $$RANDOM`/" app/assets/index.html
+
+.PHONY: unretina dropbox all cachebust
