@@ -113,6 +113,8 @@
 
 ;if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
   $('html').addClass('mobile');
+else
+  $('html').addClass('desktop');
 
 // ----------------------------------------------------------------------------
 // Auto-height thing
