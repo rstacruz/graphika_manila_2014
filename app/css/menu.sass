@@ -19,20 +19,20 @@ $size: 40px
   > .content
     padding: 20px 0
 
+  // Disappear
+  @media (max-width: 1100px)
+    display: none
+
   .navigation-bar
     margin-top: 0
     margin-left: -40px
-
-    // Disappear
-    @media (max-width: 1100px)
-      display: none
 
   &
     background-color: rgba(black, 0.0)
     .links
       opacity: 0
-  &:hover
-    background-color: rgba(black, 0.3)
+  &.show-links
+    background-color: rgba(black, 0.1)
     .links
       opacity: 1
 
@@ -59,35 +59,57 @@ $size: 40px
       content: 'GM'
       font-weight: bold
 
-  .links
+.navigation-bar .links
+  &
+    +transition(300ms ease)
+    +transform(translate3d(0,0,0))
+
     display: block
-    box-shadow: 0 0 2px rgba(black, 0.1)
+    box-shadow: 0 1px 3px rgba(black, 0.3)
+    position: relative
 
     height: 40px
     line-height: 40px
-    overflow: hidden
+    +clearfix
     background: white
     float: left
     padding: 0 10px
 
-    li
-      display: inline
+  // Notch
+  // -----
 
-    a
-      display: block
-      float: left
+  &:before
+    $size: 20px
+    content: ''
+    display: block
 
-      padding: 0 10px
-      font-size: 0.9em
-      +lite-type
-      color: $txt
+    position: absolute
+    left: -2*$size
+    top: 0
 
-.navigation
-  .links
-    +transition(300ms ease)
-  // .links
-  //   opacity: 0
-  //   +transform(translate3d(-10px,0,0))
-  // &.show-links .links
-  //   opacity: 1
-  //   +transform(translate3d(0,0,0))
+    border: solid $size transparent
+    border-right-color: white
+
+  li
+    display: inline
+
+  // Individual links
+  // ----------------
+
+  a
+    display: block
+    float: left
+
+    padding: 0 10px
+    font-size: 0.9em
+    +lite-type
+    color: $txt
+
+  a:hover
+    background: mix($lime, white, 10%)
+    color: $teal
+
+  a.active
+    background: $teal
+    color: white
+    text-shadow: 0 1px 3px rgba(black, 0.3)
