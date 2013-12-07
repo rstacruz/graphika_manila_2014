@@ -84,6 +84,18 @@
 
   &
     text-shadow: none
+  &:before
+    $size: 20px
+    content: ''
+    display: block
+
+    position: absolute
+    left: -2*$size
+    top: 0
+
+    border: solid $size transparent
+    border-right-color: white
+
 
   // White background on desktop
   @media (min-width: 480px) /* Tablet & Desktop */

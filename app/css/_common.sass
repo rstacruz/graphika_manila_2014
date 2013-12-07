@@ -23,3 +23,17 @@ $pad: 20px
     width: 100%
     height: 0
     @content
+
+= navbar-box
+  &:before
+    $size: 20px
+    content: ''
+    display: block
+
+    position: absolute
+    left: -2*$size
+    top: 0
+
+    border: solid $size transparent
+    border-right-color: white
+

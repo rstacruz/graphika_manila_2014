@@ -41,23 +41,37 @@ $size: 40px
     +clearfix
 
   .logo
-    width: $size
+    width: $size * 1.2
     height: $size
     line-height: $size
     text-align: center
 
-    margin-right: $pad*2
+    margin-right: $pad*2 - $size*0.2
 
     color: $red
     background: $darkgrey * 0.9
-    // box-shadow: 4px 4px 0 rgba(black, 0.3)
 
     display: block
     float: left
+    overflow: hidden
 
-    &:before
-      content: 'GM'
-      font-weight: bold
+  .logo span
+    display: block
+    width: 48px
+    height: 160px
+    background: url(../images/logos.png)
+    background-size: 100% auto
+    +transform(translate3d(0,-40px * 3,0))
+    +transition(200ms ease)
+
+    .section-top &
+      +transform(translate3d(0,-40px * 0,0))
+    .section-speakers &
+      +transform(translate3d(0,-40px * 1,0))
+    .section-schedule &,
+    .section-tickets &,
+    .section-faq &
+      +transform(translate3d(0,-40px * 2,0))
 
 .navigation-bar .links
   &
@@ -65,30 +79,15 @@ $size: 40px
     +transform(translate3d(0,0,0))
 
     display: block
-    box-shadow: 0 1px 3px rgba(black, 0.3)
     position: relative
 
     height: 40px
     line-height: 40px
     +clearfix
-    background: white
     float: left
     padding: 0 10px
 
-  // Notch
-  // -----
-
-  &:before
-    $size: 20px
-    content: ''
-    display: block
-
-    position: absolute
-    left: -2*$size
-    top: 0
-
-    border: solid $size transparent
-    border-right-color: white
+  +navbar-box
 
   li
     display: inline
