@@ -1034,7 +1034,6 @@ a {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #fcf4d6;
     display: inline-block;
     margin-right: 40px;
     margin-top: 20px; }
@@ -1043,7 +1042,7 @@ a {
     display: block;
     width: 20px;
     height: 1px;
-    background: teal;
+    background: #01bab5;
     margin-bottom: 10px; }
   .whoisit p:first-of-type {
     color: #cdd94a; }
