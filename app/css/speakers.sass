@@ -378,3 +378,18 @@
   &:after
     +overlay(10)
     +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba(black, 0.2)))
+
+/* ----------------------------------------------------------------------------------
+ * Disable fancy scrolling on iPad
+ */
+
+@media (min-width: 480px) /* Tablet & Desktop */
+  .mobile
+    .speaker
+      display: none
+
+    .speakers .items
+      +transform(none !important)
+
+    .speakers > .bg
+      position: static !important

@@ -1,3 +1,6 @@
+if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
+  $('html').addClass('mobile');
+
 // ----------------------------------------------------------------------------
 // Auto-height thing
 
@@ -13,8 +16,8 @@ $(function () {
     },
 
     off: function () {
-      $('.speakers .item').css({ height: null });
-      $('.speaker.section').css({ height: null });
+      $('.speakers .item').css({ height: '' });
+      $('.speaker.section').css({ height: '' });
       $(window).off('resize.fill');
     }
   });

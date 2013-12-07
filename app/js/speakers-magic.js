@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
-// Restructuring the speakers
+// Restructuring the speakers ('.magic')
 
 $(function () {
   var $speakers, $contents, $backdrops, len;
 
-  Harvey.attach('(min-width: 1024px)', {
+  Harvey.attach('(min-width: 480px)', {
     setup: function () {
       $speakers = $(".speaker");
       $contents = $(".speaker .content:first-child");

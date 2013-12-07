@@ -2,9 +2,11 @@
 // Speaker scrolling animation
 
 $(function () {
-  var $speakers = $(".speaker.section");
-
   $('.fillsize').fillsize('>img');
+});
+
+$(function () {
+  var $speakers = $(".speaker.section");
 
   $('.section[id], .m-section').scrollagent({
     xform: function (y, range, height) { return y + height * 0.8; }
