@@ -99,18 +99,17 @@
     color: white
 
   p.pullquote
-    font-size: 1.2em
+    +respond(font-size, 1.2em, 1.6em, 1.8em)
     color: #555
     +lite-type
 
-  @media (min-width: 480px) /* Tablet & Desktop */
+  @media (min-width: 768px) /* Desktop */
     p
       width: 33%
       float: left
       padding-right: 30px
 
     p.pullquote
-      font-size: 1.8em
       width: 100%
 
       margin-bottom: $pad*1.5
