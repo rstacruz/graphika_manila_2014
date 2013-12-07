@@ -303,7 +303,6 @@ a {
   font-weight: bold;
   color: white; }
 .section.about p.pullquote {
-  font-size: 1.2em;
   color: #555555;
   font-family: oswald, sans-serif;
   letter-spacing: 1px;
@@ -312,13 +311,20 @@ a {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-@media (min-width: 480px) {
+  .section.about p.pullquote {
+    font-size: 1.2em; }
+  @media (min-width: 480px) {
+    .section.about p.pullquote {
+      font-size: 1.6em; } }
+  @media (min-width: 768px) {
+    .section.about p.pullquote {
+      font-size: 1.8em; } }
+@media (min-width: 768px) {
   .section.about p {
     width: 33%;
     float: left;
     padding-right: 30px; }
   .section.about p.pullquote {
-    font-size: 1.8em;
     width: 100%;
     margin-bottom: 30px;
     padding-bottom: 30px;
