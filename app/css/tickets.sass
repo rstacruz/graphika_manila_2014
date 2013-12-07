@@ -32,13 +32,25 @@
     +respond(padding, 20px 20px, 70px 20px)
     text-align: center
     line-height: 1.2
-    background: $red
+    background-color: red
+    &
+      background-image: url(../images/bg-ticket-red.jpg)
+    +hidpi
+      background-image: url(../images/bg-ticket-red@2x.jpg)
+    background-size: 100% auto
+
     color: white
     +antialias
     +clearfix
+    text-shadow: 0 0 8px rgba(black, 0.5), 0 0 8px $red
 
     + .ticket
-      background: $darkgrey
+      background-color: $darkgrey
+      &
+        background-image: url(../images/bg-ticket-grey.jpg)
+      +hidpi
+        background-image: url(../images/bg-ticket-grey@2x.jpg)
+      text-shadow: 0 0 8px $darkgrey
 
   img
     display: none
