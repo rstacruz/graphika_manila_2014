@@ -13,7 +13,8 @@
   background-size: 500px auto
 
   .heading h2
-    color: $lime
+    color: $lime * 0.8
+    +respond(font-size, auto, 1.3em, 1.5em)
 
 .ticket-list
   width: 100%
@@ -29,6 +30,7 @@
       width: 33.3%
 
   .ticket
+    position: relative
     +respond(padding, 20px 20px, 70px 20px)
     text-align: center
     line-height: 1.2
@@ -51,6 +53,32 @@
       +hidpi
         background-image: url(../images/bg-ticket-grey@2x.jpg)
       text-shadow: 0 0 8px $darkgrey
+
+  // Ornament
+  // --------
+
+  @media (min-width: 768px)
+    .ticket:before
+      content: ''
+      display: block
+
+      position: absolute
+
+    .ticket:first-child:before
+      background: url(../images/o-ticket-left.png)
+      bottom: -38px
+      right: -10px
+
+      width: 659px
+      height: 235px
+
+    .ticket:last-child:before
+      background: url(../images/o-ticket-right.png)
+      bottom: -11px
+      right: -200px
+
+      width: 691px
+      height: 272px
 
   img
     display: none
