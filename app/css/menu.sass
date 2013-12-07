@@ -8,20 +8,38 @@ $size: 40px
 
 .navigation
   position: fixed
-  top: 0
+  top: 20px
   left: 0
   width: 100%
   z-index: 20
 
+  background-color: rgba(black, 0.3)
+  +transition(200ms ease)
+
+  > .content
+    padding: 20px 0
+
   .navigation-bar
-    margin-top: 40px
-    margin-left: -($size + $pad*2)
+    margin-top: 0
+    margin-left: -40px
 
     // Disappear
     @media (max-width: 1100px)
       display: none
 
+  &
+    background-color: rgba(black, 0.0)
+    .links
+      opacity: 0
+  &:hover
+    background-color: rgba(black, 0.3)
+    .links
+      opacity: 1
+
 .navigation-bar
+  &
+    +clearfix
+
   .logo
     width: $size
     height: $size
@@ -67,9 +85,9 @@ $size: 40px
 .navigation
   .links
     +transition(300ms ease)
-  .links
-    opacity: 0
-    +transform(translate3d(-10px,0,0))
-  &.show-links .links
-    opacity: 1
-    +transform(translate3d(0,0,0))
+  // .links
+  //   opacity: 0
+  //   +transform(translate3d(-10px,0,0))
+  // &.show-links .links
+  //   opacity: 1
+  //   +transform(translate3d(0,0,0))
