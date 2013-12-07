@@ -92,16 +92,23 @@
     +heading-type
     +respond(font-size, 2.5em, 3.2em, 3.7em)
 
+  @media (min-width: 480px) /* Tablet & Desktop */
+    div.info
+      border: solid 2px white
+      padding: 15px
+      max-width: 200px
+      margin: 0 auto 20px auto
+
   p.extra
     line-height: 1.5
     font-size: 0.9em
 
-    @media (min-width: 480px) /* Tablet & Desktop */
-      +hr($position: before)
-        width: 40px
-        border-top: solid 1px white
-        opacity: 0.5
-        margin: $pad auto $pad*1.5 auto
+    // @media (min-width: 480px) /* Tablet & Desktop */
+    //   +hr($position: before)
+    //     width: 40px
+    //     border-top: solid 1px white
+    //     opacity: 0.5
+    //     margin: $pad auto $pad*1.5 auto
 
   @media (max-width: 480px) /* Mobile */
     h3
@@ -145,9 +152,10 @@
     font-size: 1.6em
 
   strong
-    +lite-type
+    +subheading-type
+    font-size: 1.1em
     margin-right: 20px
-    color: $lime * 00.8
+    color: $lime * 0.8
     +fa-icon(check, 14px, $margin: 8px, $color: $teal, $top: -1px)
 
   small
@@ -160,7 +168,6 @@
     strong, small
       display: block
 
-
 /* ----------------------------------------------------------------------------------
  * Buy box
  */
@@ -170,7 +177,7 @@
 
   .buy-button
     +button-base
-    +button-lite($border: 4px)
+    +button-lite($border: 6px, $color: $txt)
     +fa-icon(angle-right, 1em, $position: after, $margin: 8px, $top: -0.15em)
 
     display: block
@@ -178,7 +185,6 @@
     width: 100%
     text-align: center
 
-    color: $txt
     +heading-type
     font-size: 1.6em
 
@@ -222,7 +228,7 @@
 
 .popup-menu
   // box-shadow: 0 2px 3px rgba(black, 0.2), 0 0 2px rgba(black, 0.1)
-  padding: 5px 0
+  padding: 15px 0
   background: $teal
   border-radius: 3px
 
@@ -243,6 +249,9 @@
     +transition(none)
     background: $teal*0.8
     color: white
+
+  a:active
+    background: $teal*0.7
 
   a.bank
     +fa-icon(money, 14px, $margin: 15px)
