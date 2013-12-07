@@ -23,6 +23,11 @@ $(function () {
   });
 });
 
+$(function () {
+  $('.fillsize').fillsize('>img');
+  $('.backdrop').fillsize('>video');
+});
+
 // ----------------------------------------------------------------------------
 // Toggleable
 

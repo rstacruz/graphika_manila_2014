@@ -2,10 +2,6 @@
 // Speaker scrolling animation
 
 $(function () {
-  $('.fillsize').fillsize('>img');
-});
-
-$(function () {
   var $speakers = $(".speaker.section");
 
   $('.section[id], .m-section').scrollagent({

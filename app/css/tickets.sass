@@ -102,7 +102,7 @@
   .pass-contents, .buy-box
     margin-bottom: $pad
 
-  @media (min-width: 480px) /* Tablet & Desktop */
+  @media (min-width: 768px) /* Tablet & Desktop */
     .pass-contents
       +span-columns(8 of 12)
 
@@ -233,7 +233,10 @@
     margin-bottom: 5px
 
   @media (min-width: 480px) /* Tablet & Desktop */
-    +span-columns(4)
+    +span-columns(6)
     border-top: solid 1px #ccc
     margin-top: 40px
     padding-top: 10px
+
+  @media (min-width: 768px) /* Desktop */
+    +span-columns(4)
