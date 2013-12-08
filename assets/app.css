@@ -1004,8 +1004,7 @@ a {
   z-index: 0; }
 .speakers > .bg .item {
   position: relative;
-  overflow: hidden;
-  border-bottom: solid 2px white; }
+  overflow: hidden; }
 .speakers > .bg .items {
   -webkit-transition: 600ms ease;
   -moz-transition: 600ms ease;
@@ -1699,8 +1698,7 @@ a {
   background-color: #b61521;
   color: #fcf4d6;
   text-shadow: 0 0 5px #b61521;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-  border-bottom: solid 2px #212121; }
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); }
   @media (max-width: 480px) {
     .title-card .backdrop > * {
       display: none; }
