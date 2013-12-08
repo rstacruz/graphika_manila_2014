@@ -142,6 +142,7 @@ $size: 40px
 // -------------
 
 .navigation-bar
+  // Default
   &
     a[href="#speakers"], .speaker-link a
       +transition(600ms ease)
@@ -157,11 +158,21 @@ $size: 40px
       width: 0
       padding: 6px 0
 
+    .speaker-link img
+      +transition(200ms linear)
+      opacity: 0
+
+  // Active
   &.show-speakers
     a[href="#speakers"]
       width: 0
     .speaker-link a
       width: 36px
+    .speaker-link img
+      +transition(200ms linear 200ms)
+      opacity: 0.2
+    .speaker-link a.active img
+      opacity: 1
 
 .navigation-bar li.speaker-link
   a:hover
@@ -176,7 +187,6 @@ $size: 40px
 
   a.active img
     border-color: $teal
-    opacity: 1
 
   img
     display: block
@@ -187,5 +197,4 @@ $size: 40px
     height: 28px
     border: solid 2px #ccc
     // box-shadow: 0 2px 3px rgba(black, 0.2)
-    opacity: 0.2
 
