@@ -1,5 +1,6 @@
 @import common
 @import utils/typography
+@import utils/respond
 
 // ----------------------------------------------------------------------------
 // Navigation box
@@ -8,25 +9,19 @@ $size: 40px
 
 .navigation
   position: fixed
-  top: 20px
+  top: 0
   left: 0
   width: 100%
   z-index: 20
 
-  background-color: rgba(black, 0.3)
+  background-color: rgba($teal*0.4, 0.4)
   +transition(200ms ease)
 
   > .content
-    padding: 20px 0
+    padding-top: 10px
+    padding-bottom: 10px
 
-  // Disappear
-  @media (max-width: 1100px)
-    display: none
-
-  .navigation-bar
-    margin-top: 0
-    margin-left: -40px
-
+  // Link hover effect
   &
     background-color: rgba(black, 0.0)
     .links
@@ -35,6 +30,25 @@ $size: 40px
     background-color: rgba(black, 0.1)
     .links
       opacity: 1
+
+  // Disappear on mobile
+  @media (max-width: 480px)
+    display: none
+
+  // Pin to top on tablet
+  @media (max-width: 768px)
+    position: relative
+    background-color: $red*0.5
+    .links
+      opacity: 1
+
+  // Big desktop: move a little to the left
+  @media (min-width: 1100px)
+    .content
+      +transform(translate(-80px, 0))
+
+  .navigation-bar
+    margin-top: 0
 
 .navigation-bar
   &
@@ -46,7 +60,7 @@ $size: 40px
     line-height: $size
     text-align: center
 
-    margin-right: $pad*2 - $size*0.2
+    +respond(margin-right, 0, auto, $pad*2 - $size*0.2)
 
     color: $red
     background: $darkgrey * 0.9
@@ -73,6 +87,10 @@ $size: 40px
     .section-faq &
       +transform(translate3d(0,-40px * 2,0))
 
+/* ----------------------------------------------------------------------------------
+ * Navigation links
+ */
+
 .navigation-bar .links
   &
     +transition(300ms ease)
@@ -88,6 +106,10 @@ $size: 40px
     padding: 0 10px
 
   +navbar-box
+
+  @media (max-width: 1100px)
+    &:before
+      display: none
 
   li
     display: inline

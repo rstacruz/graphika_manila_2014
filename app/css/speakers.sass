@@ -89,7 +89,7 @@
 
   // Content goes into
   .content
-    padding-top: $pad*2
+    +respond(padding-top, auto, $pad*2, $pad*4)
     position: relative
     z-index: 20
     height: 100%
@@ -107,7 +107,7 @@
   .item
     position: relative
     overflow: hidden
-    border-top: solid 2px white
+    border-bottom: solid 2px white
 
   .items
     +transition(600ms ease)

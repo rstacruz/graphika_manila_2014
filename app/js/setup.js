@@ -54,11 +54,14 @@ if (window.history && window.history.replaceState) {
 
 // ----------------------------------------------------------------------------
 
-$.monitorHover({ y: 90 });
-$(document).on('over:on', function () {
-  if ($(window).scrollTop() > 100)
+ScrollMonitor({
+  if: function (y) {
+    return y < 90;
+  },
+  enter: function () {
+    $('.navigation').toggleClass('show-links', false);
+  },
+  exit: function () {
     $('.navigation').toggleClass('show-links', true);
-});
-$(document).on('over:off', function () {
-  $('.navigation').toggleClass('show-links', false);
+  }
 });
