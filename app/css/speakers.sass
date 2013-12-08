@@ -95,6 +95,13 @@
     z-index: 20
     height: 100%
 
+  // Fix pointer events for slideshow
+  .content, .whoisit
+    pointer-events: none
+
+  .content > *
+    pointer-events: all
+
   &
     background: $darkgrey
     width: 100%
@@ -116,9 +123,19 @@
     +overlay(10)
     +background-image(linear-gradient(top, rgba(black, 0.0) 50%, rgba($teal*0.1, 0.5)))
 
+  .swipeshow
+    height: 100%
+    width: 100%
+    position: absolute
+
   // .item:before
   //   +overlay(10)
   //   background: url(../images/bg-screen.png)
+
+  .content .speaker-bio
+    box-shadow: 0 2px 3px rgba(black, 0.15), 0 2px 8px rgba(black, 0.05)
+  .content .image
+    box-shadow: 2px 2px 3px rgba(black, 0.15)
 
 /*
  * Background fading
