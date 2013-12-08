@@ -563,6 +563,7 @@ try{Ut=i.href}catch(an){Ut=o.createElement("a"),Ut.href="",Ut=Ut.href}Xt=tn.exec
         }
 
         $img.css(css);
+        $relparent.addClass('filled');
       });
     }
 
