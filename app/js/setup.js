@@ -11,6 +11,7 @@ $(function () {
 
     on: function () {
       $(window).on('resize.fill', function () {
+        $('.title-card').css({ height: Math.max(600, $(window).innerHeight()) });
         // Each of the speakers on big mode
         $('.speakers .item').css({ height: Math.max(600, $(window).innerHeight()) });
         // Scrolling placeholders
@@ -20,8 +21,7 @@ $(function () {
     },
 
     off: function () {
-      $('.speakers .item').css({ height: '' });
-      $('.speaker.section').css({ height: '' });
+      $('.title-card, .speakers .item, .speaker.section').css({ height: '' });
       $(window).off('resize.fill');
     }
   });
