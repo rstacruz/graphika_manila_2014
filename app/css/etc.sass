@@ -73,7 +73,7 @@
     +button-lite($color: white, $border: 4px)
 
 // ----------------------------------------------------------------------------
-.section.about, .section.contact
+.section.about, .section.contact, .section.footer
   background: $darkgrey
   color: #999
 
@@ -92,11 +92,11 @@
     margin-bottom: $pad
     +antialias
 
-.section.about
   p strong
     font-weight: bold
     color: white
 
+.section.about
   p.pullquote
     +respond(font-size, 1.2em, 1.6em, 1.8em)
     color: #555
@@ -126,3 +126,26 @@
     .form
       +span-columns(6)
       +omega
+
+// ----------------------------------------------------------------------------
+.section.footer
+  font-size: 0.9em
+  color: #555
+
+  strong
+    +subheading-type
+
+  .content
+    padding-top: $pad
+    padding-bottom: $pad
+
+  p
+    margin-bottom: $pad
+
+  @media (min-width: 481px) // tablet & desktop
+    p:first-child
+      float: left
+      margin-right: 20px
+
+    p:last-child
+      float: right
