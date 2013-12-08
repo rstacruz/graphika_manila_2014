@@ -11,8 +11,10 @@ $(function () {
 
     on: function () {
       $(window).on('resize.fill', function () {
-        $('.speakers .item').css({ height: $(window).innerHeight() });
-        $('.speaker.section').css({ height: $(window).innerHeight() });
+        // Each of the speakers on big mode
+        $('.speakers .item').css({ height: Math.max(600, $(window).innerHeight()) });
+        // Scrolling placeholders
+        $('.speaker.section').css({ height: Math.max(600, $(window).innerHeight()) });
       });
       $(window).trigger('resize.fill');
     },
