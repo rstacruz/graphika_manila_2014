@@ -289,14 +289,14 @@ a {
       color: white;
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
 
-.section.about, .section.contact {
+.section.about, .section.contact, .section.footer {
   background: #212121;
   color: #999999; }
-  .section.about a, .section.contact a {
+  .section.about a, .section.contact a, .section.footer a {
     color: #626057; }
-  .section.about a:hover, .section.contact a:hover {
+  .section.about a:hover, .section.contact a:hover, .section.footer a:hover {
     color: #787569; }
-  .section.about h2, .section.contact h2 {
+  .section.about h2, .section.contact h2, .section.footer h2 {
     color: #626057;
     font-family: oswald, sans-serif;
     letter-spacing: 1px;
@@ -306,15 +306,15 @@ a {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.2em; }
-  .section.about p, .section.contact p {
+  .section.about p, .section.contact p, .section.footer p {
     margin-bottom: 20px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
+  .section.about p strong, .section.contact p strong, .section.footer p strong {
+    font-weight: bold;
+    color: white; }
 
-.section.about p strong {
-  font-weight: bold;
-  color: white; }
 .section.about p.pullquote {
   color: #555555;
   font-family: oswald, sans-serif;
@@ -362,6 +362,29 @@ a {
       margin-right: 0; }
       .section.contact .form:last-child {
         margin-right: 0; } }
+
+.section.footer {
+  font-size: 0.9em;
+  color: #555555; }
+  .section.footer strong {
+    font-family: museo-slab, sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  .section.footer .content {
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  .section.footer p {
+    margin-bottom: 20px; }
+  @media (min-width: 481px) {
+    .section.footer p:first-child {
+      float: left;
+      margin-right: 20px; }
+    .section.footer p:last-child {
+      float: right; } }
 
 .faq-list strong:after {
   line-height: 1em;
@@ -741,7 +764,7 @@ a {
   @media (min-width: 481px) {
     .section.schedule .map.column {
       height: 300px; } }
-@media (min-width: 481px) {
+@media (min-width: 769px) {
   .section.schedule .map.column {
     float: left;
     display: block;
