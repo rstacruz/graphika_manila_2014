@@ -41,26 +41,25 @@
     +respond(font-size, 20px, 34px, 40px)
 
   span
-    +respond(margin-right, 0, 1em, 2.5em)
+    +respond(margin, 0 0.5em, 0 1em, 0 1em 0 0)
     vertical-align: middle
     display: inline-block
 
-  @media (max-width: 480px) /* Mobile */
-    &
-      text-align: center
-    span
-      margin: 0 0.5em
+  &, h3
+    text-align: center
 
-  h3
-    float: left
+  @media (min-width: 769px) /* Tablet & Desktop */
+    h3
+      float: left
+      text-align: left
 
   a
-    @media (max-width: 480px) /* Mobile */
+    @media (max-width: 768px) /* Mobile & Tablet */
       margin-top: $pad
       padding: 8px 20px
       font-size: 1.3em
 
-    @media (min-width: 480px) /* Tablet & Desktop */
+    @media (min-width: 769px) /* Desktop */
       float: right
       padding: 15px 30px
       font-size: 1.7em
