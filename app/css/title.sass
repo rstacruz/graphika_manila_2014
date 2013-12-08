@@ -123,7 +123,7 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
     padding-bottom: $pad
 
   @media (min-width: 481px) /* Tablet & Desktop */
-    padding-bottom: $pad*2
+    padding-bottom: $pad
 
   em, strong
     display: block
@@ -163,8 +163,7 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
   &.date
     clear: both
 
-  &.summary
-    +respond(margin-bottom, $pad*0.5, $pad)
+  &.summary, &.speakers-list
 
     @media (max-width: 480px) /* Mobile */
       margin-right: 0
@@ -202,26 +201,37 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
     +subheading-type
     +respond(font-size, 1em, 1.2em, 1.5em)
 
-  .speakers-list
-    margin: 0.3em 0
-
 .title-card .speakers-list
   +subheading-type
 
+  @media (min-width: 481px) // tablet & desktop
+    h3, ul
+      +span-columns(3 of 6)
+
+  h3
+    +heading-type
+    color: $yellow
+    +respond(font-size, 1.1em, 1.5em)
+
+  ul
+    +clearfix
+
   li
-    display: inline
     white-space: nowrap
     text-wrap: none
     word-wrap: none
+    +fa-icon(angle-right, 1em, $margin: 8px, $color: $yellow)
 
-  li:after
-    content: '\2219'
-    margin: 0 5px
-    color: $lime
-    opacity: 0.8
-
-  li:last-child:after
-    display: none
+  @media (max-width: 480px) // mobile
+    ul
+      padding-top: $pad/2
+    li
+      +span-columns(6 of 12)
+      +omega(2n)
+  @media (min-width: 481px) // tablet & desktop
+    li
+      +span-columns(4 of 8)
+      +omega(2n)
 
 /* ----------------------------------------------------------------------------------
  * Bounce icon
