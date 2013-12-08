@@ -17,8 +17,12 @@
 //      });
 
 (function($) {
+  var count = 0;
 
   $.fn.scrollagent = function(options, callback) {
+    // Event tag
+    var tag = '.scrollagent.scrollagent-'+(++count);
+
     // Account for $.scrollspy(function)
     if (typeof callback === 'undefined') {
       callback = options;
@@ -30,21 +34,7 @@
     var xform = options.xform || (function(y, range, height) {
       return y + height * (0.3 + 0.7 * Math.pow(y/range, 2));
     });
-
-    // Find the top offsets of each section
-    var offsets = [];
-    $sections.each(function(i) {
-      var offset = $(this).attr('data-anchor-offset') ?
-        parseInt($(this).attr('data-anchor-offset'), 10) :
-        (options.offset || 0);
-
-      offsets.push({
-        top: $(this).offset().top + offset,
-        id: $(this).attr('id'),
-        index: i,
-        el: this
-      });
-    });
+    var offsets = getOffsets($sections, options);
 
     // State
     var current = null;
@@ -53,13 +43,15 @@
 
     // Save the height. Do this only whenever the window is resized so we don't
     // recalculate often.
-    $(window).on('resize', function() {
+    $(window).on('resize'+tag, function() {
       height = $parent.height();
       range = $(document).height();
+      offsets = getOffsets($sections, options);
+      $parent.trigger('scroll'+tag);
     });
 
     // Find the current active section every scroll tick.
-    $parent.on('scroll', function() {
+    $parent.on('scroll'+tag, function() {
       var y = $parent.scrollTop();
       y = xform(y, range, height);
 
@@ -87,5 +79,22 @@
 
     return this;
   };
+
+  function getOffsets($sections, options) {
+    var offsets = [];
+    $sections.each(function(i) {
+      var offset = $(this).attr('data-anchor-offset') ?
+        parseInt($(this).attr('data-anchor-offset'), 10) :
+        (options.offset || 0);
+
+      offsets.push({
+        top: $(this).offset().top + offset,
+        id: $(this).attr('id'),
+        index: i,
+        el: this
+      });
+    });
+    return offsets;
+  }
 
 })(jQuery);
