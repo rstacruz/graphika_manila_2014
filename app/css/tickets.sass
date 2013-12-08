@@ -33,11 +33,12 @@
       width: 33.3%
 
   .ticket
-    position: relative
-    +respond(padding, 20px 20px, 70px 20px)
     text-align: center
     line-height: 1.2
     background-color: red
+    .in
+      position: relative
+      +respond(padding, 20px 20px, 70px 20px)
     &
       background-image: url(../images/bg-ticket-red.jpg)
     +hidpi
@@ -61,13 +62,13 @@
   // --------
 
   @media (min-width: 768px)
-    .ticket:before
+    .ticket .in:before
       content: ''
       display: block
 
       position: absolute
 
-    .ticket:first-child:before
+    .ticket:first-child .in:before
       background: url(../images/o-ticket-left.png)
       bottom: -38px
       right: -10px
@@ -75,13 +76,22 @@
       width: 659px
       height: 235px
 
-    .ticket:last-child:before
+    .ticket:last-child .in:before
       background: url(../images/o-ticket-right.png)
       bottom: -11px
       right: -200px
 
       width: 691px
       height: 272px
+
+  // iPad portrait: simpler
+  @media (min-width: 768px)
+    .ticket .in
+      overflow: hidden
+    .ticket:first-child .in:before
+      right: -20px
+    .ticket:last-child .in:before
+      right: -240px
 
   img
     display: none
