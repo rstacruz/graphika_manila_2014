@@ -13,6 +13,7 @@ $size: 40px
   left: 0
   width: 100%
   z-index: 20
+  +transition(200ms ease)
 
   > .content
     padding-top: 10px
@@ -20,15 +21,11 @@ $size: 40px
 
   // Link hover effect
   &
-    +transition(200ms ease 200ms, background-color 200ms linear)
-    background-color: rgba(black, 0.0)
     +transform(translate3d(0, 30px, 0))
     +pointer-events(none)
     .links
       opacity: 0
   &.show-links
-    +transition(200ms ease, background-color 200ms linear 200ms)
-    background-color: rgba($teal*0.4, 0.4)
     +transform(translate3d(0, 0, 0))
     +pointer-events(auto)
     .links
@@ -108,9 +105,9 @@ $size: 40px
     line-height: 40px
     +clearfix
     float: left
-    padding: 0 10px
+    padding-right: 10px
 
-  +navbar-box
+  +navbar-box($slate)
 
   @media (max-width: 1100px)
     &:before
@@ -129,11 +126,12 @@ $size: 40px
     padding: 0 10px
     font-size: 0.9em
     +lite-type
-    color: $txt
+    color: mix($slate, white, 20%)
+    text-shadow: 0 0 3px rgba(black, 0.1)
 
   a:hover
-    background: mix($lime, white, 10%)
-    color: $teal
+    background: rgba(white, 0.1)
+    color: white
 
   a.active
     background: $teal

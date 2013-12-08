@@ -10,6 +10,7 @@ $yellow: #cdd94a
 $beige: #fcf4d6
 $lime: #a6d01d
 $darkgrey: #212121
+$slate: #607080
 
 $txt: #30303a
 $background: #fff
@@ -24,9 +25,9 @@ $pad: 20px
     height: 0
     @content
 
-= navbar-box
+= navbar-box($bg: white)
   &
-    background: white
+    background: $bg
     box-shadow: 0 1px 3px rgba(black, 0.2)
 
   &:before
@@ -39,7 +40,7 @@ $pad: 20px
     top: 0
 
     border: solid $size transparent
-    border-right-color: white
+    border-right-color: $bg
 
 = pointer-events($val)
   -webkit-pointer-events: $val
