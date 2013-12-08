@@ -7,7 +7,7 @@ else
 // Auto-height thing
 
 $(function () {
-  Harvey.attach('(min-width: 480px)', {
+  Harvey.attach('(min-width: 481px)', {
 
     on: function () {
       $(window).on('resize.fill', function () {
