@@ -30,6 +30,7 @@ $size: 40px
     +transition(200ms ease, background-color 200ms linear 200ms)
     background-color: rgba($teal*0.4, 0.4)
     +transform(translate3d(0, 0, 0))
+    +pointer-events(auto)
     .links
       opacity: 1
 
@@ -138,3 +139,54 @@ $size: 40px
     background: $teal
     color: white
     text-shadow: 0 1px 3px rgba(black, 0.3)
+
+// Hide speakers
+// -------------
+
+.navigation-bar
+  &
+    a[href="#speakers"], .speaker-link a
+      +transition(200ms ease)
+      overflow: hidden
+
+    a[href="#speakers"]
+      width: 80px
+      padding-left: 0
+      padding-right: 0
+      text-align: center
+
+    .speaker-link a
+      width: 0
+      padding: 5px 0
+
+  &.show-speakers
+    a[href="#speakers"]
+      width: 0
+    .speaker-link a
+      width: 36px
+
+.navigation-bar li.speaker-link
+  a:hover
+    background: transparent
+
+  a:hover img
+    border-color: rgba($teal, 0.4)
+    opacity: 0.8
+
+  a.active
+    background: transparent
+
+  a.active img
+    border-color: $teal
+    opacity: 1
+
+  img
+    display: block
+    margin: 0 auto
+
+    width: 30px
+    height: 30px
+    border: solid 2px #ccc
+    // box-shadow: 0 2px 3px rgba(black, 0.2)
+    opacity: 0.2
+
