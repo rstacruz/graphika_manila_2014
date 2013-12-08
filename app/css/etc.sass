@@ -81,7 +81,7 @@
     color: mix($beige, $darkgrey, 30%)
 
   a:hover
-    color: mix($beige, $darkgrey, 40%)
+    color: mix($beige, $darkgrey, 60%)
 
   h2
     color: mix($beige, $darkgrey, 30%)
@@ -149,3 +149,16 @@
 
     p:last-child
       float: right
+
+  a.icon-only
+    +fa-icon(link, 14px)
+    padding: 4px 4px
+
+    &[href*="tumblr.com"]:before
+      @extend %fa-tumblr
+    &[href*="facebook.com"]:before
+      @extend %fa-facebook-square
+    &[href*="twitter.com"]:before
+      @extend %fa-twitter
+    &[href*="github.com"]:before
+      @extend %fa-github-alt
