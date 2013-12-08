@@ -222,7 +222,7 @@ a {
       padding-left: 40px;
       padding-right: 40px; } }
 
-.section.about-banner a:after {
+.section.about-banner a:after, .section.footer a.icon-only:before {
   line-height: 1em;
   font-family: FontAwesome;
   font-weight: normal;
@@ -234,8 +234,23 @@ a {
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale; }
 
+.section.footer a.icon-only[href*="facebook.com"]:before {
+  content: "\f082"; }
+
+.section.footer a.icon-only[href*="twitter.com"]:before {
+  content: "\f099"; }
+
+.section.footer a.icon-only:before {
+  content: "\f0c1"; }
+
 .section.about-banner a:after {
   content: "\f105"; }
+
+.section.footer a.icon-only[href*="github.com"]:before {
+  content: "\f113"; }
+
+.section.footer a.icon-only[href*="tumblr.com"]:before {
+  content: "\f173"; }
 
 .heading {
   font-size: 2.5em; }
@@ -381,7 +396,7 @@ a {
   .section.about a, .section.contact a, .section.footer a {
     color: #626057; }
   .section.about a:hover, .section.contact a:hover, .section.footer a:hover {
-    color: #787569; }
+    color: #a49f8d; }
   .section.about h2, .section.contact h2, .section.footer h2 {
     color: #626057;
     font-family: oswald, sans-serif;
@@ -471,6 +486,12 @@ a {
       margin-right: 20px; }
     .section.footer p:last-child {
       float: right; } }
+  .section.footer p .icon-only:first-of-type {
+    margin-left: 5px; }
+  .section.footer a.icon-only {
+    padding: 4px 4px; }
+    .section.footer a.icon-only:before {
+      font-size: 14px; }
 
 .faq-list strong:after {
   line-height: 1em;
