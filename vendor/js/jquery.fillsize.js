@@ -28,8 +28,8 @@
       if (!$img) $img = $parent.find(selector);
 
       $img.each(function() {
-        if (!this.complete) return;
         var $img = $(this);
+        if ($img.is('img') && !this.complete) return;
 
         var $relparent = $img.closest($parent);
         var parent = { height: $relparent.innerHeight(), width: $relparent.innerWidth() };
