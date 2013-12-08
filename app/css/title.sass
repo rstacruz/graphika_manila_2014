@@ -1,5 +1,6 @@
 @import common
 @import utils/typography
+@import utils/fontawesome
 @import utils/respond
 
 /* ----------------------------------------------------------------------------------
@@ -45,13 +46,12 @@
 .title-card .logo
   $r: 800/275
 
-  +respond(width, 270px, 300px, 400px)
-  +respond(height, 270px/$r, 300px/$r, 400px/$r)
-  +respond(margin, 50px auto 80px auto, 0 0 100px 0, 0 0 100px 0)
+  height: auto
+  +respond(width, 270px, 66%, 49%)
+  +respond(margin, 50px auto 80px auto, 0 0 40px 0, 0 0 60px 0)
 
   img
     width: 100%
-
 
 /* ----------------------------------------------------------------------------------
  * Share links:
@@ -82,7 +82,7 @@
   @media (min-width: 481px) /* Tablet & Desktop */
     position: absolute
     top: 40px
-    right: 40px
+    left: 40px
 
   @media (max-width: 480px) /* Mobile */
     margin-top: -$pad
@@ -218,3 +218,37 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
   li:last-child:after
     display: none
 
+/* ----------------------------------------------------------------------------------
+ * Bounce icon
+ */
+
+@media (max-width: 480px) // mobile
+  .title-card .bounce-icon
+    display: none
+
+.title-card .bounce-icon
+  +animation(bounce-icon 700ms linear infinite)
+  position: absolute
+  bottom: 40px
+  left: 50%
+  margin-left: -5px
+
+  &:before
+    content: ''
+    display: block
+    width: 30px
+    height: 30px
+    border-right: solid 1px white
+    border-bottom: solid 1px white
+    +transform(rotate(45deg))
+
++keyframes(bounce-icon)
+  0%
+    +transform(translate3d(0, -10px, 0))
+    opacity: 1
+  80%
+    +transform(translate3d(0, 10px, 0))
+    opacity: 0
+  100%
+    +transform(translate3d(0, -10px, 0))
+    opacity: 0
