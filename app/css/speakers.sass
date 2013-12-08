@@ -37,7 +37,7 @@
       padding-right: 10px
 
 /* ----------------------------------------------------------------------------------
- * Scroll guides
+ * Scroll guides (track)
  */
 
 .speakers.magic
@@ -59,6 +59,7 @@
     height: 100%
     +background-image(linear-gradient(top, white 0px, rgba(black, 0.3) 1px, rgba(white, 0.0) 2px, rgba(white, 0.0)))
     background-size: 20px 20px
+    opacity: 0.5
 
   // Large ticks
   .speaker:after
@@ -249,8 +250,9 @@
   // Fading thing
   @media (min-width: 481px) /* Tablet & Desktop */
     img
-      opacity: 0.3
+      opacity: 0.9
       +transition(opacity 50ms linear)
+      box-shadow: 10px 10px rgba($red, 0.2)
 
     &:hover img
       opacity: 1

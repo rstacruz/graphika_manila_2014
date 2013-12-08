@@ -42,6 +42,12 @@ a
   position: relative
   overflow: hidden
 
+  > img
+    +transition(200ms linear)
+
+  &:not(.filled) > img
+    opacity: 0
+
 // ----------------------------------------------------------------------------
 // Sections
 

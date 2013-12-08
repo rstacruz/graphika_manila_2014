@@ -56,6 +56,7 @@
         }
 
         $img.css(css);
+        $relparent.addClass('filled');
       });
     }
 
