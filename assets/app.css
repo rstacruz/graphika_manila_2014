@@ -114,8 +114,6 @@ a {
   @media (max-width: 480px) {
     .section > .backdrop {
       display: none; } }
-  .mobile .section > .backdrop {
-    display: none; }
 .section > .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
