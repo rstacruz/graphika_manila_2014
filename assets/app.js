@@ -90,25 +90,10 @@
   globals.require.list = list;
   globals.require.brunch = true;
 })();
-(function ($) {
-
-  $.monitorHover = function (options) {
-    var y = options.y || 10;
-    var mercy = options.mercy || 10;
-    var over = false;
-    $(document).on('mousemove', function (e) {
-      if (e.clientY < y && !over) {
-        over = true;
-        $(document).trigger('over:on');
-      } else if (e.clientY > (y + mercy) && over) {
-        over = false;
-        $(document).trigger('over:off');
-      }
-    });
-  };
-
-})(jQuery);
-
+$(function () {
+  $('.fillsize').fillsize('>img');
+  $('.backdrop').fillsize('>video');
+});
 
 
 ;if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
@@ -136,11 +121,6 @@ $(function () {
       $(window).off('resize.fill');
     }
   });
-});
-
-$(function () {
-  $('.fillsize').fillsize('>img');
-  $('.backdrop').fillsize('>video');
 });
 
 // ----------------------------------------------------------------------------
@@ -172,13 +152,16 @@ if (window.history && window.history.replaceState) {
 
 // ----------------------------------------------------------------------------
 
-$.monitorHover({ y: 90 });
-$(document).on('over:on', function () {
-  if ($(window).scrollTop() > 100)
+ScrollMonitor({
+  if: function (y) {
+    return y < 90;
+  },
+  enter: function () {
+    $('.navigation').toggleClass('show-links', false);
+  },
+  exit: function () {
     $('.navigation').toggleClass('show-links', true);
-});
-$(document).on('over:off', function () {
-  $('.navigation').toggleClass('show-links', false);
+  }
 });
 
 ;// ----------------------------------------------------------------------------
@@ -220,23 +203,33 @@ $(function () {
   var $speakers = $(".speaker.section");
 
   // Separate scrollagent for menu activation
-  $('body > [id]').scrollagent(function (cid, pid, el, previous) {
+  $('body > .section[id]').scrollagent(function (cid, pid, el, previous) {
     if (cid) $('a[href="#'+cid+'"]').addClass('active');
     if (pid) $('a[href="#'+pid+'"]').removeClass('active');
   });
 
   $('.section[id], .m-section').scrollagent({
-    xform: function (y, range, height) { return y + height * 0.8; }
+    xform: function (y, range, height) { return y + height * 0.2; }
   }, function (cid, pid, el, previous) {
-    if (cid) $('a[href="#'+cid+'"]').addClass('active');
-    if (pid) $('a[href="#'+pid+'"]').removeClass('active');
+    // Fix navigation bar
+    var isSpeaker = ($(el).closest('#speakers').length > 0);
+    $('.navigation-bar').toggleClass('show-speakers', isSpeaker);
+    $(".speaker-link a.active").removeClass('active');
+    if (isSpeaker) {
+      $('a[href="#'+cid+'"]').addClass('active');
+    }
 
+    // Highlight the current class (for whatever reason)
     $(el).addClass('active');
     $(previous).removeClass('active');
-    $(document).trigger('section', cid);
+
+    // Update root classname (transitions stuff via CSS)
     $('html')
       .toggleClass(getClass($(previous)), false)
       .toggleClass(getClass($(el)), true);
+
+    // Let others know
+    $(document).trigger('section', cid);
   });
 
   function getClass($el) {
@@ -248,6 +241,19 @@ $(function () {
   }
 });
 
+
+;$(function () {
+  $('video').each(function () {
+    var $video = $(this);
+    var vid = $video[0];
+
+    vid.addEventListener('ended', function () {
+      console.log("END");
+      vid.currentTime = 0.1;
+      vid.play();
+    }, false);
+  });
+});
 
 ;
 //# sourceMappingURL=app.js.map
