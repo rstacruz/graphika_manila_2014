@@ -1892,7 +1892,7 @@ a {
     .establishments-heading {
       padding-top: 60px; } }
 .establishments-heading h3 {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
   font-family: oswald, sans-serif;
   letter-spacing: 1px;
@@ -1903,6 +1903,9 @@ a {
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.2em;
   margin-bottom: 20px; }
+@media (min-width: 481px) {
+  .establishments-heading h3 {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2); } }
 
 .establishments-list article {
   font-size: 0.9em;
@@ -1938,7 +1941,10 @@ a {
   .establishments-list br {
     display: none; }
   .establishments-list h4 {
-    font-size: 1.1em; } }
+    font-size: 1.1em; }
+  .establishments-list article + article {
+    border-top: solid 1px rgba(0, 0, 0, 0.1);
+    padding-top: 10px; } }
 @media (min-width: 481px) and (max-width: 768px) {
   .establishments-list br {
     display: none; }
