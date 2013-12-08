@@ -110,7 +110,7 @@
     overflow: hidden
 
   .items
-    +transition(600ms ease)
+    +transition($speed*3 ease)
 
   .item:after
     +overlay(10)
@@ -126,7 +126,7 @@
 
 .speakers >.bg
   opacity: 0.01
-  +transition(opacity 500ms linear)
+  +transition(opacity $speed*2 linear)
 
   .section-schedule &,
   .section-tickets &,
@@ -251,7 +251,7 @@
   @media (min-width: 481px) /* Tablet & Desktop */
     img
       opacity: 0.9
-      +transition(opacity 50ms linear)
+      +transition(opacity $speed/4 linear)
 
     &:hover img
       opacity: 1

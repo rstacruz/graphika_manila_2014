@@ -13,7 +13,7 @@ $size: 40px
   left: 0
   width: 100%
   z-index: 20
-  +transition(200ms ease)
+  +transition($speed ease)
 
   > .content
     padding-top: 10px
@@ -78,7 +78,7 @@ $size: 40px
     background: url(../images/logos.png)
     background-size: 100% auto
     +transform(translate3d(0,-40px * 3,0))
-    +transition(200ms ease)
+    +transition($speed*2 ease)
 
     .section-top &
       +transform(translate3d(0,-40px * 0,0))
@@ -95,7 +95,7 @@ $size: 40px
 
 .navigation-bar .links
   &
-    +transition(300ms ease)
+    +transition($speed ease)
     +transform(translate3d(0,0,0))
 
     display: block
@@ -138,6 +138,14 @@ $size: 40px
     color: white
     text-shadow: 0 1px 3px rgba(black, 0.3)
 
+  // Custom colors
+  a[href="#schedule"], a[href="#tickets"], a[href="#faq"]
+    &.active
+      background: $lime*0.8
+  a[href="#about"], a[href="#contact"]
+    &.active
+      background: $red
+
 // Hide speakers
 // -------------
 
@@ -145,7 +153,7 @@ $size: 40px
   // Default
   &
     a[href="#speakers"], .speaker-link a
-      +transition(600ms ease)
+      +transition($speed*3 ease)
       overflow: hidden
 
     a[href="#speakers"]
@@ -159,7 +167,7 @@ $size: 40px
       padding: 6px 0
 
     .speaker-link img
-      +transition(200ms linear)
+      +transition($speed linear)
       opacity: 0
 
   // Active
@@ -167,9 +175,9 @@ $size: 40px
     a[href="#speakers"]
       width: 0
     .speaker-link a
-      width: 36px
+      width: 34px
     .speaker-link img
-      +transition(200ms linear 200ms)
+      +transition($speed linear $speed)
       opacity: 0.2
     .speaker-link a.active img
       opacity: 1
@@ -191,10 +199,9 @@ $size: 40px
   img
     display: block
     margin: 0 auto
-    border-radius: 50%
 
     width: 28px
     height: 28px
-    border: solid 2px #ccc
+    border: solid 2px $slate
     // box-shadow: 0 2px 3px rgba(black, 0.2)
 
