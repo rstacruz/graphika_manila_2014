@@ -1943,6 +1943,21 @@ a {
     margin: 0 15px 0 -55px;
     float: left; } }
 
+.title-card .speakers-list li:before {
+  line-height: 1em;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale; }
+
+.title-card .speakers-list li:before {
+  content: "\f178"; }
+
 /* ----------------------------------------------------------------------------------
  * Main title (.title-card.section):
  * The top section.
@@ -2070,7 +2085,7 @@ a {
   padding-bottom: 20px; }
 @media (min-width: 481px) {
   .title-card .detail {
-    padding-bottom: 40px; } }
+    padding-bottom: 20px; } }
 .title-card .detail em, .title-card .detail strong {
   display: block; }
 .title-card .detail strong, .title-card .detail h2 {
@@ -2134,29 +2149,24 @@ a {
         margin-right: 0; } }
 .title-card .detail.date {
   clear: both; }
-.title-card .detail.summary {
-  margin-bottom: 10px; }
-@media (min-width: 481px) {
-  .title-card .detail.summary {
-    margin-bottom: 20px; } }
 @media (max-width: 480px) {
-  .title-card .detail.summary {
+  .title-card .detail.summary, .title-card .detail.speakers-list {
     margin-right: 0; } }
 @media (min-width: 481px) {
-  .title-card .detail.summary {
+  .title-card .detail.summary, .title-card .detail.speakers-list {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%; }
-    .title-card .detail.summary:last-child {
+    .title-card .detail.summary:last-child, .title-card .detail.speakers-list:last-child {
       margin-right: 0; } }
 @media (min-width: 769px) {
-  .title-card .detail.summary {
+  .title-card .detail.summary, .title-card .detail.speakers-list {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%; }
-    .title-card .detail.summary:last-child {
+    .title-card .detail.summary:last-child, .title-card .detail.speakers-list:last-child {
       margin-right: 0; } }
 
 /* ----------------------------------------------------------------------------------
@@ -2207,8 +2217,6 @@ a {
   @media (min-width: 769px) {
     .title-card .detail.summary .speakers {
       font-size: 1.5em; } }
-.title-card .detail.summary .speakers-list {
-  margin: 0.3em 0; }
 
 .title-card .speakers-list {
   font-family: museo-slab, sans-serif;
@@ -2218,18 +2226,66 @@ a {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+  @media (min-width: 481px) {
+    .title-card .speakers-list h3, .title-card .speakers-list ul {
+      float: left;
+      display: block;
+      margin-right: 4.82916%;
+      width: 47.58542%; }
+      .title-card .speakers-list h3:last-child, .title-card .speakers-list ul:last-child {
+        margin-right: 0; } }
+  .title-card .speakers-list h3 {
+    font-family: oswald, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #cdd94a; }
+    .title-card .speakers-list h3 {
+      font-size: 1.1em; }
+    @media (min-width: 481px) {
+      .title-card .speakers-list h3 {
+        font-size: 1.5em; } }
+  .title-card .speakers-list ul:after {
+    content: "";
+    display: table;
+    clear: both; }
   .title-card .speakers-list li {
-    display: inline;
     white-space: nowrap;
     text-wrap: none;
     word-wrap: none; }
-  .title-card .speakers-list li:after {
-    content: "\2219";
-    margin: 0 5px;
-    color: #a6d01d;
-    opacity: 0.8; }
-  .title-card .speakers-list li:last-child:after {
-    display: none; }
+    .title-card .speakers-list li:before {
+      margin-right: 8px;
+      font-size: 1em;
+      color: #cdd94a; }
+  @media (max-width: 480px) {
+    .title-card .speakers-list ul {
+      padding-top: 10px; }
+    .title-card .speakers-list li {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .title-card .speakers-list li:last-child {
+        margin-right: 0; }
+      .title-card .speakers-list li:nth-child(2n) {
+        margin-right: 0; }
+      .title-card .speakers-list li:nth-child(2n+1) {
+        clear: left; } }
+  @media (min-width: 481px) {
+    .title-card .speakers-list li {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 48.21067%; }
+      .title-card .speakers-list li:last-child {
+        margin-right: 0; }
+      .title-card .speakers-list li:nth-child(2n) {
+        margin-right: 0; }
+      .title-card .speakers-list li:nth-child(2n+1) {
+        clear: left; } }
 
 /* ----------------------------------------------------------------------------------
  * Bounce icon
