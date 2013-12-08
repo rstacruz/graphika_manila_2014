@@ -390,7 +390,7 @@ a {
 .faq-list strong {
   display: block;
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -676,7 +676,7 @@ a {
 .navigation-bar.show-speakers a[href="#speakers"] {
   width: 0; }
 .navigation-bar.show-speakers .speaker-link a {
-  width: 36px; }
+  width: 34px; }
 .navigation-bar.show-speakers .speaker-link img {
   -webkit-transition: 200ms linear 200ms;
   -moz-transition: 200ms linear 200ms;
@@ -697,10 +697,9 @@ a {
 .navigation-bar li.speaker-link img {
   display: block;
   margin: 0 auto;
-  border-radius: 50%;
   width: 28px;
   height: 28px;
-  border: solid 2px #cccccc; }
+  border: solid 2px #607080; }
 
 .section.schedule .map-link:before, .section.schedule .ext-link:before, .schedule-cards dt:after {
   line-height: 1em;
@@ -874,7 +873,7 @@ a {
   border-bottom-color: #01bab5; }
 .schedule-cards dd {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -1147,7 +1146,7 @@ a {
   .whoisit p {
     font-size: 1.1em;
     font-family: museo-slab, sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -1px;
     text-transform: none;
     text-rendering: optimizeLegibility;
@@ -1253,7 +1252,7 @@ a {
   line-height: 1.3; }
 .speaker-bio .name p {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -1543,7 +1542,7 @@ a {
   font-size: 1.6em; }
 .pass-contents strong {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -1855,7 +1854,7 @@ a {
       font-size: 1.6em; } }
 .title-card .detail em {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -1956,7 +1955,7 @@ a {
       line-height: 1.1; } }
 .title-card .detail.summary .speakers {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -1975,7 +1974,7 @@ a {
 
 .title-card .speakers-list {
   font-family: museo-slab, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -2074,7 +2073,7 @@ a {
   .download-poster h4 {
     color: #ffc1c5;
     font-family: museo-slab, sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -1px;
     text-transform: none;
     text-rendering: optimizeLegibility;
@@ -2089,14 +2088,14 @@ a {
   .download-poster a {
     color: #ff838d;
     font-family: museo-slab, sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -1px;
     text-transform: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   .download-poster a:hover {
-    color: #ffa2aa; }
+    color: #a6d01d; }
   .download-poster i {
     float: right;
     width: 33px;
