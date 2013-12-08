@@ -14,20 +14,22 @@ $size: 40px
   width: 100%
   z-index: 20
 
-  background-color: rgba($teal*0.4, 0.4)
-  +transition(200ms ease)
-
   > .content
     padding-top: 10px
     padding-bottom: 10px
 
   // Link hover effect
   &
+    +transition(200ms ease 200ms, background-color 200ms linear)
     background-color: rgba(black, 0.0)
+    +transform(translate3d(0, 40px, 0))
+    +pointer-events(none)
     .links
       opacity: 0
   &.show-links
-    background-color: rgba(black, 0.1)
+    +transition(200ms ease, background-color 200ms linear 200ms)
+    background-color: rgba($teal*0.4, 0.4)
+    +transform(translate3d(0, 0, 0))
     .links
       opacity: 1
 
@@ -38,6 +40,8 @@ $size: 40px
   // Pin to top on tablet
   @media (max-width: 768px)
     position: relative
+    +pointer-events(auto)
+    +transform(translate3d(0, 0, 0))
     background-color: $red*0.5
     .links
       opacity: 1
