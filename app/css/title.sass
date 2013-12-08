@@ -106,7 +106,7 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
   @media (min-width: 769px) // desktop
     width: 100%
     position: absolute
-    left: 0
+    left: $pad * 2
     bottom: $pad *2
 
 .title-card .detail
@@ -196,4 +196,25 @@ $line-color: saturate(mix($beige, $red, 50%), 80%)
   .speakers
     +subheading-type
     +respond(font-size, 1em, 1.2em, 1.5em)
+
+  .speakers-list
+    margin: 0.3em 0
+
+.title-card .speakers-list
+  +subheading-type
+
+  li
+    display: inline
+    white-space: nowrap
+    text-wrap: none
+    word-wrap: none
+
+  li:after
+    content: '\2219'
+    margin: 0 5px
+    color: $lime
+    opacity: 0.8
+
+  li:last-child:after
+    display: none
 
