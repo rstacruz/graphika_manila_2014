@@ -486,8 +486,6 @@ a {
       margin-right: 20px; }
     .section.footer p:last-child {
       float: right; } }
-  .section.footer p .icon-only:first-of-type {
-    margin-left: 5px; }
   .section.footer a.icon-only {
     padding: 4px 4px; }
     .section.footer a.icon-only:before {
@@ -2424,7 +2422,7 @@ a {
     .download-poster {
       display: block;
       position: absolute;
-      bottom: 80px;
+      bottom: 60px;
       right: 40px; } }
 
 
