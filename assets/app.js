@@ -244,5 +244,9 @@ $(function () {
 });
 
 
+;$(function() {
+  $('.swipeshow').swipeshow();
+});
+
 ;
 //# sourceMappingURL=app.js.map
