@@ -50,13 +50,13 @@
     +respond(padding-top, $pad/2, $pad)
     +respond(margin-bottom, $pad, $pad*2)
 
-  @media (min-width: 480px) and (max-width: 768px)
-    +span-columns(6)
-    +omega(2n)
-
-  @media (min-width: 768px) /* Desktop */
+  @media (min-width: 769px) /* Desktop */
     +span-columns(4)
     +omega(3n)
+
+  @media (min-width: 480px) and (max-width: 768px) /* Tablet */
+    +span-columns(6)
+    +omega(2n)
 
   &:nth-child(4n+1)
     border-top-color: $red
