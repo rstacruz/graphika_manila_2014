@@ -4,7 +4,7 @@
 $(function () {
   var $speakers, $contents, $backdrops, len;
 
-  Harvey.attach('(min-width: 481px)', {
+  Harvey.attach('(min-width: 569px)', {
     setup: function () {
       $speakers = $(".speaker");
       $contents = $(".speaker .content:first-child");
