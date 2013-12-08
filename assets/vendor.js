@@ -578,7 +578,7 @@ try{Ut=i.href}catch(an){Ut=o.createElement("a"),Ut.href="",Ut=Ut.href}Xt=tn.exec
       // If the child is an image, fill it up when image's real dimensions are
       // first determined. Needs to be .bind() because the load event will
       // bubble up.
-      $(selector, $parent).bind('load'+tag, function() {
+      $(selector, $parent).bind('load'+tag + 'loadedmetadata'+tag, function() {
         setTimeout(resize, 25);
       });
 

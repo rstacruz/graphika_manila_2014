@@ -381,6 +381,11 @@ a {
 /* ----------------------------------------------------------------------------------
  * FAQ listing
  */
+.section.faq {
+  background-color: #fefbf2;
+  background-image: -webkit-linear-gradient(top, #fefbf2, white);
+  background-image: linear-gradient(to bottom, #fefbf2, white); }
+
 .faq-list ul:after {
   content: "";
   display: table;
@@ -833,11 +838,20 @@ a {
   padding: 0 10px;
   vertical-align: middle;
   line-height: 1.3; }
+  .schedule-cards dl {
+    padding: 10px 0; }
+  @media (min-width: 481px) {
+    .schedule-cards dl {
+      padding: 10px; } }
+  @media (min-width: 769px) {
+    .schedule-cards dl {
+      padding: 20px; } }
 .schedule-cards dl:first-child {
-  border-left: 0;
-  padding-left: 0; }
-.schedule-cards dl:last-child {
-  padding-right: 0; }
+  border-left: 0; }
+@media (min-width: 481px) {
+  .schedule-cards dl {
+    background: white;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); } }
 .schedule-cards dt {
   padding-bottom: 10px;
   margin-bottom: 10px;
