@@ -71,7 +71,7 @@
       // If the child is an image, fill it up when image's real dimensions are
       // first determined. Needs to be .bind() because the load event will
       // bubble up.
-      $(selector, $parent).bind('load'+tag, function() {
+      $(selector, $parent).bind('load'+tag + 'loadedmetadata'+tag, function() {
         setTimeout(resize, 25);
       });
 
