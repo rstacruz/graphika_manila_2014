@@ -125,7 +125,7 @@ a {
   .section > .content {
     padding-left: 20px;
     padding-right: 20px; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .section > .content {
       padding-left: 40px;
       padding-right: 40px; } }
@@ -340,7 +340,7 @@ a {
 .section.contact {
   box-shadow: none;
   border-top: solid 1px rgba(255, 255, 255, 0.1); }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .section.contact .details {
       float: left;
       display: block;
@@ -409,7 +409,7 @@ a {
   @media (max-width: 480px) {
     .faq-list p {
       line-height: 1.6; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .faq-list strong + p:before {
     content: "";
     display: block;
@@ -444,7 +444,7 @@ a {
       margin-right: 0; }
     .faq-list li:nth-child(3n+1) {
       clear: left; } }
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .faq-list li {
     float: left;
     display: block;
@@ -483,11 +483,11 @@ a {
     -moz-transition: 200ms ease 200ms, background-color 200ms linear;
     transition: 200ms ease 200ms, background-color 200ms linear;
     background-color: rgba(0, 0, 0, 0);
-    -webkit-transform: translate3d(0, 40px, 0);
-    -moz-transform: translate3d(0, 40px, 0);
-    -ms-transform: translate3d(0, 40px, 0);
-    -o-transform: translate3d(0, 40px, 0);
-    transform: translate3d(0, 40px, 0);
+    -webkit-transform: translate3d(0, 30px, 0);
+    -moz-transform: translate3d(0, 30px, 0);
+    -ms-transform: translate3d(0, 30px, 0);
+    -o-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
     -webkit-pointer-events: none;
     -moz-pointer-events: none;
     -ms-pointer-events: none;
@@ -720,7 +720,7 @@ a {
   @media (min-width: 481px) {
     .section.schedule .map.column {
       height: 300px; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .section.schedule .map.column {
     float: left;
     display: block;
@@ -930,7 +930,7 @@ a {
   color: #cdd94a; }
 .speakers .heading h2:after {
   border-top-color: #cdd94a; }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .speakers .heading {
     display: none; } }
 @media (max-width: 480px) {
@@ -1096,14 +1096,14 @@ a {
     margin-bottom: 10px; }
     .speaker:last-child {
       margin-bottom: 0; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .speaker {
     min-height: 750px; } }
 
 .speaker-bio {
   background: white;
   position: relative; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .speaker-bio {
       max-width: 300px; } }
 
@@ -1178,7 +1178,7 @@ a {
     background: white; }
     .speaker-bio .image, .speaker-bio .image img {
       border-radius: 50%; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .speaker-bio .image {
     position: absolute;
     top: 0;
@@ -1187,7 +1187,7 @@ a {
   display: block;
   width: 100%;
   height: 100%; }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .speaker-bio .image img {
     opacity: 0.3;
     -webkit-transition: opacity 50ms linear;
@@ -1203,7 +1203,7 @@ a {
     padding: 20px; }
   .speaker-bio .info + .info {
     padding-top: 0; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .speaker-bio .info {
     padding: 20px; }
   .speaker-bio .info + .info {
@@ -1289,7 +1289,7 @@ a {
   width: 100%;
   position: relative;
   overflow: hidden; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .speaker-bio .sample-work {
       display: none; } }
   .speaker-bio .sample-work:after {
@@ -1313,7 +1313,7 @@ a {
  * This disables the "jump" scrolling of the speakers on iPads. It's only a CSS
  * fix; no JS required.
  */
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .mobile .speaker {
     display: none; }
   .mobile .speakers .items {
@@ -1367,7 +1367,7 @@ a {
 .ticket-list {
   width: 100%;
   margin-bottom: 10px; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .ticket-list {
       display: table;
       margin-bottom: 40px; }
@@ -1409,7 +1409,7 @@ a {
       @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 1.3 / 1), only screen and (min-resolution: 125dpi), only screen and (min-resolution: 1.3dppx) {
         .ticket-list .ticket + .ticket {
           background-image: url(../images/bg-ticket-grey@2x.jpg); } }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .ticket-list .ticket .in:before {
       content: "";
       display: block;
@@ -1426,7 +1426,7 @@ a {
       right: -200px;
       width: 691px;
       height: 272px; } }
-  @media (min-width: 480px) and (max-width: 768px) {
+  @media (min-width: 481px) and (max-width: 768px) {
     .ticket-list .ticket .in {
       overflow: hidden; }
     .ticket-list .ticket:first-child .in:before {
@@ -1465,7 +1465,7 @@ a {
     @media (min-width: 769px) {
       .ticket-list p.price {
         font-size: 3.7em; } }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .ticket-list div.info {
       border: solid 2px white;
       padding: 15px;
@@ -1671,7 +1671,7 @@ a {
   font-size: 0.85em; }
   .pass-reminders li {
     margin-bottom: 5px; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .pass-reminders {
       float: left;
       display: block;
@@ -1725,31 +1725,25 @@ a {
  * The logo image thing.
  */
 .title-card .logo {
-  width: 270px; }
-@media (min-width: 481px) {
+  height: auto; }
   .title-card .logo {
-    width: 300px; } }
-@media (min-width: 769px) {
+    width: 270px; }
+  @media (min-width: 481px) {
+    .title-card .logo {
+      width: 66%; } }
+  @media (min-width: 769px) {
+    .title-card .logo {
+      width: 49%; } }
   .title-card .logo {
-    width: 400px; } }
-.title-card .logo {
-  height: 92.8125px; }
-@media (min-width: 481px) {
-  .title-card .logo {
-    height: 103.125px; } }
-@media (min-width: 769px) {
-  .title-card .logo {
-    height: 137.5px; } }
-.title-card .logo {
-  margin: 50px auto 80px auto; }
-@media (min-width: 481px) {
-  .title-card .logo {
-    margin: 0 0 100px 0; } }
-@media (min-width: 769px) {
-  .title-card .logo {
-    margin: 0 0 100px 0; } }
-.title-card .logo img {
-  width: 100%; }
+    margin: 50px auto 80px auto; }
+  @media (min-width: 481px) {
+    .title-card .logo {
+      margin: 0 0 40px 0; } }
+  @media (min-width: 769px) {
+    .title-card .logo {
+      margin: 0 0 60px 0; } }
+  .title-card .logo img {
+    width: 100%; }
 
 /* ----------------------------------------------------------------------------------
  * Share links:
@@ -1759,7 +1753,7 @@ a {
   display: inline-block; }
 .share-links {
   text-shadow: none; }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .share-links {
     padding: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -1779,11 +1773,11 @@ a {
 @media (max-width: 1100px) {
   .share-links:before {
     display: none; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .share-links {
     position: absolute;
     top: 40px;
-    right: 40px; } }
+    left: 40px; } }
 @media (max-width: 480px) {
   .share-links {
     margin-top: -20px;
@@ -1808,7 +1802,7 @@ a {
     .title-card .details {
       width: 100%;
       position: absolute;
-      left: 0;
+      left: 40px;
       bottom: 40px; } }
 
 .title-card .detail {
@@ -1817,7 +1811,7 @@ a {
   padding-top: 10px;
   line-height: 1.4;
   padding-bottom: 20px; }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .title-card .detail {
     padding-bottom: 40px; } }
 .title-card .detail em, .title-card .detail strong {
@@ -1865,7 +1859,7 @@ a {
     width: 48.21067%; }
     .title-card .detail.date:last-child, .title-card .detail.venue:last-child {
       margin-right: 0; }
-  @media (min-width: 480px) {
+  @media (min-width: 481px) {
     .title-card .detail.date, .title-card .detail.venue {
       float: left;
       display: block;
@@ -1891,7 +1885,7 @@ a {
 @media (max-width: 480px) {
   .title-card .detail.summary {
     margin-right: 0; } }
-@media (min-width: 480px) {
+@media (min-width: 481px) {
   .title-card .detail.summary {
     float: left;
     display: block;
@@ -1956,6 +1950,95 @@ a {
   @media (min-width: 769px) {
     .title-card .detail.summary .speakers {
       font-size: 1.5em; } }
+.title-card .detail.summary .speakers-list {
+  margin: 0.3em 0; }
+
+.title-card .speakers-list {
+  font-family: museo-slab, sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .title-card .speakers-list li {
+    display: inline;
+    white-space: nowrap;
+    text-wrap: none;
+    word-wrap: none; }
+  .title-card .speakers-list li:after {
+    content: "\2219";
+    margin: 0 5px;
+    color: #a6d01d;
+    opacity: 0.8; }
+  .title-card .speakers-list li:last-child:after {
+    display: none; }
+
+/* ----------------------------------------------------------------------------------
+ * Bounce icon
+ */
+@media (max-width: 480px) {
+  .title-card .bounce-icon {
+    display: none; } }
+.title-card .bounce-icon {
+  -webkit-animation: bounce-icon 700ms linear infinite;
+  -moz-animation: bounce-icon 700ms linear infinite;
+  animation: bounce-icon 700ms linear infinite;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -5px; }
+  .title-card .bounce-icon:before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+@-webkit-keyframes bounce-icon {
+  0% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    opacity: 1; }
+
+  80% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    opacity: 0; }
+
+  100% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    opacity: 0; } }
+
+@-moz-keyframes bounce-icon {
+  0% {
+    -moz-transform: translate3d(0, -10px, 0);
+    opacity: 1; }
+
+  80% {
+    -moz-transform: translate3d(0, 10px, 0);
+    opacity: 0; }
+
+  100% {
+    -moz-transform: translate3d(0, -10px, 0);
+    opacity: 0; } }
+
+@keyframes bounce-icon {
+  0% {
+    transform: translate3d(0, -10px, 0);
+    opacity: 1; }
+
+  80% {
+    transform: translate3d(0, 10px, 0);
+    opacity: 0; }
+
+  100% {
+    transform: translate3d(0, -10px, 0);
+    opacity: 0; } }
 
 
 /*# sourceMappingURL=app.css.map*/
