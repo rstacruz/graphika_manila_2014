@@ -14,7 +14,7 @@ $(function () {
         // Each of the speakers on big mode
         $('.speakers .item').css({ height: Math.max(600, $(window).innerHeight()) });
         // Scrolling placeholders
-        $('.speaker.section').css({ height: Math.max(600, $(window).innerHeight()) });
+        $('.speaker.section').css({ height: Math.max(600, $(window).innerHeight() * 1.4) });
       });
       $(window).trigger('resize.fill');
     },
