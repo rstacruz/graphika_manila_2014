@@ -27,3 +27,13 @@ This is HTML5 application, built with [Brunch](http://brunch.io).
  * `app/css/` - Sass + Bourbon stylesheets
  * `app/js/` - JavaScript files
  * `public/` - generated files
+
+-----
+
+## Ffmpeg options
+
+Install ffmpeg with --enable-libvpx (or --with-libvpx in Homebrew).
+
+Create webm format:
+
+ * ffmpeg -i input.mp4 -c:v libvpx -an -b:v 1M out.webm
