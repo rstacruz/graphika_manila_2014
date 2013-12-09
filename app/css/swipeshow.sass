@@ -1,0 +1,49 @@
+.swipeshow .dots,
+.swipeshow .dot-item,
+.swipeshow .dot
+  margin: 0
+  padding: 0
+  list-style: none
+
+  border: 0
+  background: transparent
+
+.swipeshow .dots
+  position: absolute
+  bottom: 40px
+  right: 40px
+  z-index: 30
+  text-align: right
+  list-style: none
+
+  font-size: 0
+
+.swipeshow .dot-item
+  list-style: none
+  display: inline-block
+
+  width: 28px
+  height: 20px
+  line-height: 20px
+  text-align: center
+
+  cursor: pointer
+
+.swipeshow .dot
+  display: inline-block
+  width: 10px
+  height: 10px
+  border-radius: 50%
+  font-size: 0
+
+  border: solid 2px rgba(255, 255, 255, 0.8)
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
+
+  background-color: rgba(0, 0, 0, 0.5)
+
+.no-touch .dot-item:hover .dot
+  background-color: rgba(255, 255, 255, 0.2)
+
+.swipeshow .dot-item:active .dot,
+.swipeshow .dot-item.active .dot
+  background-color: white
