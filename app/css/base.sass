@@ -79,8 +79,15 @@ a
     @media (max-width: 480px) /* Mobile */
       display: none
 
-    // .mobile &
-    //   display: none
+    // Hide on mobiles
+    &
+      img
+        display: none
+    .mobile &
+      video
+        display: none
+      img
+        display: block
 
   >.content
     +box-sizing(border-box)
