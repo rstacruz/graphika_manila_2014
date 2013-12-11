@@ -202,6 +202,12 @@ a {
   @media (max-width: 480px) {
     .section > .backdrop {
       display: none; } }
+  .section > .backdrop img {
+    display: none; }
+  .mobile .section > .backdrop video {
+    display: none; }
+  .mobile .section > .backdrop img {
+    display: block; }
 .section > .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
