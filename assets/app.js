@@ -252,7 +252,7 @@ $(function () {
 
 
 ;$(function() {
-  if ($('html').is('desktop')) {
+  if ($('html').is('.desktop')) {
     $('.swipeshow').each(function () {
       $(this).append('<div class="dots">');
     });
