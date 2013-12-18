@@ -2,7 +2,10 @@
 // Speaker scrolling animation
 
 $(function () {
-  if ($('html').is('.mobile')) return;
+  if ($('html').is('.mobile')) {
+    $('html').addClass('section-speakers');
+    return;
+  }
 
   var $speakers = $(".speaker.section");
 
