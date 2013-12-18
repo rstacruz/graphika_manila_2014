@@ -2,6 +2,8 @@
 // Speaker scrolling animation
 
 $(function () {
+  if ($('html').is('.mobile')) return;
+
   var $speakers = $(".speaker.section");
 
   // Separate scrollagent for menu activation
