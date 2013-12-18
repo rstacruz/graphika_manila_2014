@@ -90,13 +90,7 @@
   globals.require.list = list;
   globals.require.brunch = true;
 })();
-$(function () {
-  $('.fillsize').fillsize('>img');
-  $('.backdrop').fillsize('>video');
-});
-
-
-;if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
+if (navigator.userAgent.match(/iPad|iPod|iPhone|Android/))
   $('html').addClass('mobile');
 else
   $('html').addClass('desktop');
@@ -173,6 +167,12 @@ ScrollMonitor({
   }
 });
 
+;$(function () {
+  $('.fillsize').fillsize('>img');
+  $('.backdrop').fillsize('>video');
+});
+
+
 ;// ----------------------------------------------------------------------------
 // Restructuring the speakers ('.magic')
 
@@ -209,6 +209,8 @@ $(function () {
 // Speaker scrolling animation
 
 $(function () {
+  if ($('html').is('.mobile')) return;
+
   var $speakers = $(".speaker.section");
 
   // Separate scrollagent for menu activation
