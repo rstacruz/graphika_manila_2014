@@ -228,6 +228,12 @@ a {
       padding-left: 40px;
       padding-right: 40px; } }
 
+/* ----------------------------------------------------------------------------------
+ * iPad fix
+ */
+.mobile .swipeshow, .mobile .slides, .mobile .slide, .mobile .whoisit {
+  -webkit-transform: none !important; }
+
 .section.about-banner a:after, .section.footer a.icon-only:before {
   line-height: 1em;
   font-family: FontAwesome;
