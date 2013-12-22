@@ -104,3 +104,12 @@ a
     @media (min-width: 481px) /* Tablet and desktop */
       padding-left: 40px
       padding-right: 40px
+
+/* ----------------------------------------------------------------------------------
+ * iPad fix
+ */
+
+// Disable translateZ() for iPads so to reduce memory usage
+.mobile
+  .swipeshow, .slides, .slide, .whoisit
+    -webkit-transform: none !important
